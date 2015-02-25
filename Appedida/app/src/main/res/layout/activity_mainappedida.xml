@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/azul_fundo">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/azul_fundo_oscuro">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/appedida"
+            android:textColor="@color/branco"
+            android:textSize="@dimen/font50"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/tEntrar">
+
+            <TextView
+                android:background="@color/verde_claro"
+                android:text="@string/entrar"
+                android:gravity="center_vertical|center"
+                android:layout_width="match_parent"
+                android:textColor="@color/azul_fundo_oscuro"
+                android:textSize="@dimen/font18"
+                android:layout_height="@dimen/dimen57" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:id="@+id/tRegistrar">
+
+            <TextView
+                android:background="@color/verde_claro"
+                android:text="@string/registrar"
+                android:gravity="center_vertical|center"
+                android:layout_width="match_parent"
+                android:textColor="@color/azul_fundo_oscuro"
+                android:textSize="@dimen/font18"
+                android:layout_height="@dimen/dimen57" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
