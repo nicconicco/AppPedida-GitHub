@@ -20,11 +20,18 @@
         <activity
             android:name=".activity.MenuAppedida"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".activity.RegistrarAppedida"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activity.FazerPedidoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MeusPedidosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.EditarPerfilActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

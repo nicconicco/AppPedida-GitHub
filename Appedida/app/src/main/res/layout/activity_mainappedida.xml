@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/azul_fundo">
-
     <LinearLayout
         android:layout_margin="20dp"
         android:layout_width="match_parent"
@@ -29,7 +28,7 @@
             android:id="@+id/tEntrar">
 
             <TextView
-                android:background="@color/verde_claro"
+                android:background="@drawable/selector_btn"
                 android:text="@string/entrar"
                 android:gravity="center_vertical|center"
                 android:layout_width="match_parent"
@@ -47,7 +46,7 @@
             android:id="@+id/tRegistrar">
 
             <TextView
-                android:background="@color/verde_claro"
+                android:background="@drawable/selector_btn"
                 android:text="@string/registrar"
                 android:gravity="center_vertical|center"
                 android:layout_width="match_parent"

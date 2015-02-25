@@ -6,4 +6,18 @@
     <string name="entrar">Entrar</string>
     <string name="registrar">Registrar</string>
     <string name="appedida">Appedida</string>
+    <string name="login">Login</string>
+    <string name="digite">Digite seu login de acesso a app</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="cpf">CPF</string>
+    <string name="celular">Celular para contato</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="digite_seu_email">Digite seu email </string>
+    <string name="digite_seu_cpf">Digite seu CPF</string>
+    <string name="celular_para_contato">Celular para contato</string>
+    <string name="fazer_pedido">Fazer pedido</string>
+    <string name="meus_pedidos">Meus pedidos já realizados</string>
+    <string name="editar_meu_perfil">Editar meu perfil</string>
+    <string name="usuario_cadastrado">Usuário cadastrado com sucesso!</string>
 </resources>
