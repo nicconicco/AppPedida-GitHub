@@ -1,11 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/azul_fundo"
+    >
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/azul_fundo_oscuro">
 
-</RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/appedida"
+            android:textColor="@color/branco"
+            android:textSize="@dimen/font50"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="|center|bottom">
+
+        <TextView
+            android:background="@color/verde_claro"
+            android:text="@string/entrar"
+            android:gravity="center_vertical|center"
+            android:layout_width="match_parent"
+            android:textColor="@color/azul_fundo_oscuro"
+            android:textSize="@dimen/font18"
+            android:layout_height="@dimen/dimen57" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:background="@color/verde_claro"
+            android:text="@string/registrar"
+            android:gravity="center_vertical|center"
+            android:layout_width="match_parent"
+            android:textColor="@color/azul_fundo_oscuro"
+            android:textSize="@dimen/font18"
+            android:layout_height="@dimen/dimen57" />
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

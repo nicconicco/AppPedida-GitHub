@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="vermelho_escuro">#770000</color>
+    <color name="laranja">#ffa645</color>
+    <color name="cinza_escuro">#404c59</color>
+    <color name="cinza_tab">#3d3d3d</color>
+
+    <!-- CORES OFICIAIS DO PROJETO -->
+    <color name="verde">#00aa28</color>
+    <color name="verde_claro">#0DFF81</color>
+    <color name="laranja_oscuro">#ffa645</color>
+    <color name="azul">#75fdff</color>
+    <color name="amarelo">#FFE92E</color>
+    <color name="cinza">#b7d9ea</color>
+    <color name="cinza_cadastro">#8c96a0</color>
+    <color name="cinza_letra">#ff7f898d</color>
+    <color name="azul_fundo_oscuro">#ff273243</color>
+    <color name="azul_teste">#ff67798b</color>
+    <color name="azul_teste2">#4b5c6e</color>
+    <color name="oscuro_2">#404c59</color>
+    <color name="sedentario_balao">#b22626</color>
+    <color name="pouco_ativo_balao">#DC7814</color>
+
+    <color name="ativo">#1EB9B9</color>
+    <color name="muito_ativo">#22AB55</color>
+
+    <!-- CORES V3 -->
+    <color name="cinza_1">#b7d9ea</color>
+    <color name="cinza_2">#8c96a0</color>
+    <color name="cinza_3">#6c7478</color>
+    <color name="cinza_placeholder">#b7c1c5</color>
+    <color name="azul_1">#87a5bf</color>
+
+    <color name="azul_fundo">#4c6477</color>
+    <color name="verde_btn">#22ab55</color>
+
+    <color name="vermelho_actionbar">#b22626</color>
+
+
+
+    <!-- CLICK FACEBOOK CORES -->
+    <color name="estado_normal">#2657a3</color>
+    <color name="estado_down">#2e4786</color>
+
+    <color name="header_atividades_fisicas_font">#4F6477</color>
+
+</resources>

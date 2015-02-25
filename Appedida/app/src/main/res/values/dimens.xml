@@ -1,5 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">20.67dp</dimen>
+    <dimen name="actionbar_margin">11.67dp</dimen>
+
+    <!-- DIMENSÕES PARA FONTES DE LETRAS-->
+    <dimen name="font12">12sp</dimen>
+    <dimen name="font13">13sp</dimen>
+    <dimen name="font133">13.3sp</dimen>
+    <dimen name="font14">14sp</dimen>
+    <dimen name="font153">15.3sp</dimen>
+    <dimen name="font16">16sp</dimen>
+    <dimen name="font166">16.6sp</dimen>
+    <dimen name="font18">18sp</dimen>
+    <dimen name="fontActionBar">19.33sp</dimen>
+    <dimen name="font186">18.67sp</dimen>
+    <dimen name="font20">20sp</dimen>
+    <dimen name="font213">21.3sp</dimen>
+    <dimen name="font22">22sp</dimen>
+
+    <dimen name="font25">25sp</dimen>
+    <dimen name="font26">26.67sp</dimen>
+    <dimen name="font355">35sp</dimen>
+    <dimen name="font42">42sp</dimen>
+    <dimen name="font466">46.6sp</dimen>
+
+    <dimen name="texto_treino">14.67sp</dimen>
+
+    <!-- DIMENSÃO DE ALTURA DO BOTOÕES DAS TELAS -->
+    <dimen name="dimen57">57.33dp</dimen>
+    <dimen name="font50">50dp</dimen>
 </resources>
