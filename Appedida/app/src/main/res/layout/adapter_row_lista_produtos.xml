@@ -1,18 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="@color/branco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen57"
+            android:layout_marginLeft="20dp"
+            android:gravity="center|left"
+            android:text="@string/produto"
+            android:textSize="@dimen/font18" />
+
+        <TextView
+            android:id="@+id/tPreco"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen57"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/preco"
+            android:textSize="@dimen/font18" />
+
+        <TextView
+            android:id="@+id/tButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen57"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:background="@drawable/selector_btn"
+            android:text="@string/botao"
+            android:textSize="@dimen/font18" />
+
+
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen57"
-        android:text="produto"
-        android:id="@+id/tProduto"
-        android:gravity="center"
-        android:textSize="@dimen/font18"/>
-    <TextView
-        android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/preto"/>
+        android:background="@color/preto" />
 </LinearLayout>

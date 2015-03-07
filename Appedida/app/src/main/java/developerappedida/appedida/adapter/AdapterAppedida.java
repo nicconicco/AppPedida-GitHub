@@ -12,14 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import developerappedida.appedida.R;
+import developerappedida.appedida.classes.Pedido;
 
 public class AdapterAppedida  extends BaseAdapter {
 
     private final LayoutInflater inflater;
     private Activity context;
-    private List<String> list;
+    private List<Pedido> list;
 
-    public AdapterAppedida(Activity context, ArrayList<String> list) {
+    public AdapterAppedida(Activity context, ArrayList<Pedido> list) {
         this.context = context;
         this.list = list;
         this.inflater = LayoutInflater.from(context);

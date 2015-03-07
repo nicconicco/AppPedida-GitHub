@@ -20,4 +20,15 @@
     <string name="meus_pedidos">Meus pedidos já realizados</string>
     <string name="editar_meu_perfil">Editar meu perfil</string>
     <string name="usuario_cadastrado">Usuário cadastrado com sucesso!</string>
+    <string name="preco">Preço</string>
+    <string name="produto">Produto</string>
+    <string name="botao">Botão</string>
+    <string name="batata_com_presunto">Batata com presunto</string>
+    <string name="reais">R$</string>
+    <string name="dez_reais">10,0</string>
+    <string name="batata_com_queijo">Batata com queijo</string>
+    <string name="batata_com_oregano">Batata com oregano</string>
+    <string name="batata_com_batata_palha">Batata com batata palha</string>
+    <string name="batata_com_strogonoff">Batata com strogonoff</string>
+    <string name="batata_com_rucula">Batata com rucula</string>
 </resources>
