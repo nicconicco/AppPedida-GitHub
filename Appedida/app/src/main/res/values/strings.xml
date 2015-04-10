@@ -7,7 +7,7 @@
     <string name="registrar">Registrar</string>
     <string name="appedida">Appedida</string>
     <string name="login">Login</string>
-    <string name="digite">Digite seu login de acesso a app</string>
+    <string name="digite">Digite seu login</string>
     <string name="senha">Senha</string>
     <string name="email">Email</string>
     <string name="cpf">CPF</string>
@@ -31,4 +31,10 @@
     <string name="batata_com_batata_palha">Batata com batata palha</string>
     <string name="batata_com_strogonoff">Batata com strogonoff</string>
     <string name="batata_com_rucula">Batata com rucula</string>
+    <string name="usuario_salvo">Usuário salvo com sucesso!</string>
+    <string name="erro_ao_salvar_usuario">Erro ao salvar usuário!</string>
+    <string name="faltou_algum_dado">Faltou preencher os campos!</string>
+    <string name="voce_precisa_estar">Você precisa estar cadastrado para começar a realizar um pedido.</string>
+    <string name="clique_em_seu_pedido">Clique em um dos itens da lista para continuar realizando sua compra.</string>
+    <string name="continuar">Continuar</string>
 </resources>

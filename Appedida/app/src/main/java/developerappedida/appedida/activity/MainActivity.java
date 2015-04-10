@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import developerappedida.appedida.R;
+import developerappedida.appedida.classes.User;
+import developerappedida.appedida.domain.AppedidaService;
 
 
 public class MainActivity extends BaseActivity {
@@ -38,7 +40,14 @@ public class MainActivity extends BaseActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show(MenuAppedida.class, null);
+
+                User user = AppedidaService.getUser(getContext());
+
+                if(user != null) {
+                    show(MenuAppedida.class, null);
+                }else{
+                    toast(getString(R.string.voce_precisa_estar));
+                }
             }
         };
     }

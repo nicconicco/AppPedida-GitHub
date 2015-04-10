@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/branco"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/lRowLista">
 
 
     <LinearLayout
@@ -14,32 +15,23 @@
 
         <TextView
             android:id="@+id/tProduto"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="3"
             android:layout_height="@dimen/dimen57"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:gravity="center|left"
-            android:text="@string/produto"
+            android:text="@string/batata_com_batata_palha"
             android:textSize="@dimen/font18" />
 
         <TextView
             android:id="@+id/tPreco"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
             android:layout_height="@dimen/dimen57"
-            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="@string/preco"
             android:textSize="@dimen/font18" />
-
-        <TextView
-            android:id="@+id/tButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen57"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:background="@drawable/selector_btn"
-            android:text="@string/botao"
-            android:textSize="@dimen/font18" />
-
 
 
     </LinearLayout>

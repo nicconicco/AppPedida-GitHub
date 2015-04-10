@@ -23,10 +23,20 @@ public class Pedido extends BaseActivity {
 
     private String nome;
     private String preco;
+    private boolean checked;
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 
 
-    public Pedido(String nome, String preco) {
+    public Pedido(String nome, String preco, boolean checked) {
         this.nome = nome;
         this.preco = preco;
+        this.checked = checked;
     }
 }

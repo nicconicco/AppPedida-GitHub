@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,10 +44,27 @@ public class AdapterAppedida  extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        String item = (String) getItem(position);
+        Pedido item = (Pedido) getItem(position);
         View row = inflater.inflate(R.layout.adapter_row_lista_produtos, null);
-        TextView tMinuto = (TextView) row.findViewById(R.id.tProduto);
-        tMinuto.setText(item);
+
+        TextView tProduto = (TextView) row.findViewById(R.id.tProduto);
+        TextView tPreco = (TextView) row.findViewById(R.id.tPreco);
+        LinearLayout lRowLista = (LinearLayout) row.findViewById(R.id.lRowLista);
+
+        tProduto.setText(item.getNome().toString());
+        tPreco.setText(item.getPreco().toString());
+
+        lRowLista.setOnClickListener(selecionaItem());
+
         return row;
+    }
+
+    private View.OnClickListener selecionaItem() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        };
     }
 }

@@ -55,6 +55,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/tLogin"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimen57"
                                 android:background="@color/transparente"
@@ -94,6 +95,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/tSenha"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimen57"
                                 android:background="@color/transparente"
@@ -133,6 +135,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/tEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimen57"
                                 android:background="@color/transparente"
@@ -172,6 +175,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/tCpf"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimen57"
                                 android:background="@color/transparente"
@@ -212,6 +216,7 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/tCelular"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimen57"
                                 android:background="@color/transparente"

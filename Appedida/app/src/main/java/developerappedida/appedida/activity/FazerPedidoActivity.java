@@ -25,6 +25,7 @@ public class FazerPedidoActivity extends BaseActivity {
         listaPedidos = AppedidaService.getListaDeProdutos(getContext());
 
         AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Pedido>) listaPedidos);
+
         lAppedida.setAdapter(adapter);
 
     }
