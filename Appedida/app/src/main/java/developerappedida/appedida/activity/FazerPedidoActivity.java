@@ -8,7 +8,7 @@ import java.util.List;
 
 import developerappedida.appedida.R;
 import developerappedida.appedida.adapter.AdapterAppedida;
-import developerappedida.appedida.classes.Pedido;
+import developerappedida.appedida.domain.Pedido;
 import developerappedida.appedida.domain.AppedidaService;
 
 public class FazerPedidoActivity extends BaseActivity {

@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
-import developerappedida.appedida.classes.User;
+import developerappedida.appedida.domain.User;
 import developerappedida.appedida.domain.AppedidaService;
+import developerappedida.appedida.util.EmailValidator;
+
 
 public class RegistrarAppedida extends BaseActivity {
 
@@ -71,8 +72,31 @@ public class RegistrarAppedida extends BaseActivity {
     }
 
     private boolean validaDados() {
-        if(tLogin != null & tSenha != null && tEmail != null && tCpf != null && tCelular != null){
-            // Validar Dados CPF, celular, email
+
+        EmailValidator validarEmail = new EmailValidator();
+
+        boolean validaEmail = validarEmail.validate(tSenha.getText().toString());
+
+        if(!validaEmail){
+            toast(R.string.email_invalido);
+            return false;
+        }
+
+        boolean contemDigitosCelular = tCelular.getText().toString().contains("41") && tCelular!= null && (tCelular.getTextSize()>9);
+
+        if(!contemDigitosCelular){
+            toast(R.string.msg_celular_erro);
+            return false;
+        }
+
+        boolean contemCpf = tCpf.getTextSize() > 10;
+
+        if(!contemCpf){
+            toast(R.string.cpf_invalido);
+            return false;
+        }
+
+        if(tLogin != null && tSenha != null && validaEmail && contemCpf && contemDigitosCelular){
             return true;
         }
         return false;

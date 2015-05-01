@@ -102,7 +102,7 @@
                                 android:ellipsize="middle"
                                 android:gravity="center_horizontal|center"
                                 android:hint="@string/digite_sua_senha"
-                                android:inputType="textCapSentences"
+                                android:inputType="numberPassword"
                                 android:paddingRight="@dimen/vertical_margin"
                                 android:textColor="@color/cinza_3"
                                 android:textColorHint="@color/cinza_placeholder"

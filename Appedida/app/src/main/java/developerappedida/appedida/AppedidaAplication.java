@@ -5,7 +5,7 @@ import android.content.Context;
 import br.livroandroid.LivroAndroidApplication;
 import br.livroandroid.db.Session;
 import br.livroandroid.db.SessionFactory;
-import developerappedida.appedida.classes.User;
+import developerappedida.appedida.domain.User;
 import developerappedida.appedida.db.AppedidaSQLiteOpenHelper;
 
 public class AppedidaAplication extends LivroAndroidApplication {

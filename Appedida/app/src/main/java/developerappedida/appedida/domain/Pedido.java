@@ -1,4 +1,4 @@
-package developerappedida.appedida.classes;
+package developerappedida.appedida.domain;
 
 import developerappedida.appedida.activity.BaseActivity;
 

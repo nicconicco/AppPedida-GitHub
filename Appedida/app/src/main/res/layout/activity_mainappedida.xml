@@ -45,14 +45,6 @@
             android:gravity="center"
             android:id="@+id/tRegistrar">
 
-            <TextView
-                android:background="@drawable/selector_btn"
-                android:text="@string/registrar"
-                android:gravity="center_vertical|center"
-                android:layout_width="match_parent"
-                android:textColor="@color/azul_fundo_oscuro"
-                android:textSize="@dimen/font18"
-                android:layout_height="@dimen/dimen57" />
         </LinearLayout>
 
 

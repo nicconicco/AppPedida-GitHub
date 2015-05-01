@@ -11,8 +11,6 @@ import br.livroandroid.db.Session;
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
 import developerappedida.appedida.activity.BaseActivity;
-import developerappedida.appedida.classes.Pedido;
-import developerappedida.appedida.classes.User;
 
 public class AppedidaService  extends BaseActivity{
 

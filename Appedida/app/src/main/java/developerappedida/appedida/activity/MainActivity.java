@@ -5,14 +5,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import developerappedida.appedida.R;
-import developerappedida.appedida.classes.User;
+import developerappedida.appedida.domain.User;
 import developerappedida.appedida.domain.AppedidaService;
 
 
 public class MainActivity extends BaseActivity {
 
     private LinearLayout tEntrar;
-    private LinearLayout tRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +19,8 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_mainappedida);
 
         tEntrar = (LinearLayout) findViewById(R.id.tEntrar);
-        tRegistrar = (LinearLayout) findViewById(R.id.tRegistrar);
 
         tEntrar.findViewById(R.id.tEntrar).setOnClickListener(entrarAppedida());
-        tRegistrar.findViewById(R.id.tRegistrar).setOnClickListener(registrarAppedida());
 
     }
 
@@ -31,7 +28,7 @@ public class MainActivity extends BaseActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show(RegistrarAppedida.class, null);
+
             }
         };
     }
@@ -46,7 +43,7 @@ public class MainActivity extends BaseActivity {
                 if(user != null) {
                     show(MenuAppedida.class, null);
                 }else{
-                    toast(getString(R.string.voce_precisa_estar));
+                    show(RegistrarAppedida.class, null);
                 }
             }
         };
