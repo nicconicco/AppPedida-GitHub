@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_fundo">
+
+    <include layout="@layout/logo" />
+
+    <ScrollView
+        android:background="@color/azul_fundo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/azul_fundo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:padding="1dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Produto" />
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Preço" />
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Quantidade" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="1dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font14"
+                    android:textColor="@color/branco"
+                    android:text="Batata suiça A" />
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="R$22,00" />
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+
+                    android:text="Batata suiça A possui queijo parmesão" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Produto" />
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Preço" />
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Quantidade" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="1dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font14"
+                    android:textColor="@color/branco"
+                    android:text="Batata suiça B" />
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="R$25,00" />
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+
+                    android:text="Batata suiça B possui presunto" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:padding="1dp"
+                android:background="@color/branco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="Preço total" />
+
+                <TextView
+                    android:background="@color/azul_fundo"
+                    android:gravity="center"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/branco"
+                    android:text="R$47,00" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/tRegistrar">
+
+        <TextView
+            android:background="@drawable/selector_btn"
+            android:text="Finalizar Pedido"
+            android:gravity="center_vertical|center"
+            android:layout_width="match_parent"
+            android:textColor="@color/azul_fundo_oscuro"
+            android:textSize="@dimen/font18"
+            android:layout_height="@dimen/dimen57" />
+    </LinearLayout>
+</LinearLayout>

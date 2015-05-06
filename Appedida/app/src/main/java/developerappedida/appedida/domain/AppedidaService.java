@@ -4,26 +4,34 @@ package developerappedida.appedida.domain;
 import android.content.Context;
 import android.util.Log;
 
+import org.w3c.dom.Node;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.livroandroid.db.Session;
+import br.livroandroid.network.HttpHelper;
+import br.livroandroid.xml.XML;
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
 import developerappedida.appedida.activity.BaseActivity;
 
-public class AppedidaService  extends BaseActivity{
+public class AppedidaService extends BaseActivity {
 
     private static final String TAG = AppedidaService.class.getSimpleName();
     private static List<Pedido> listaPedidos = new ArrayList<Pedido>();
 
+    public static final String URL_SERVER = "http://appedida.com.br";
+
     public static void getListaDeProdutos(List<Pedido> listaPedidos) {
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
+        String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
                 "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
                 "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
                 "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
-
+                "Android", "iPhone", "WindowsMobile"};
 
 
 //        listaPedidos.add();
@@ -36,12 +44,12 @@ public class AppedidaService  extends BaseActivity{
 
     public static List<Pedido> getListaDeProdutos(Context context) {
 
-        Pedido pedido_um = new Pedido(context.getString(R.string.batata_com_presunto), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
-        Pedido pedido_dois = new Pedido(context.getString(R.string.batata_com_queijo), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
-        Pedido pedido_tres = new Pedido(context.getString(R.string.batata_com_oregano), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
-        Pedido pedido_quatro = new Pedido(context.getString(R.string.batata_com_batata_palha), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
-        Pedido pedido_cinco = new Pedido(context.getString(R.string.batata_com_strogonoff), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
-        Pedido pedido_seis = new Pedido(context.getString(R.string.batata_com_rucula), context.getString(R.string.reais)+" "+context.getString(R.string.dez_reais), false);
+        Pedido pedido_um = new Pedido(context.getString(R.string.batata_com_presunto), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+        Pedido pedido_dois = new Pedido(context.getString(R.string.batata_com_queijo), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+        Pedido pedido_tres = new Pedido(context.getString(R.string.batata_com_oregano), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+        Pedido pedido_quatro = new Pedido(context.getString(R.string.batata_com_batata_palha), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+        Pedido pedido_cinco = new Pedido(context.getString(R.string.batata_com_strogonoff), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+        Pedido pedido_seis = new Pedido(context.getString(R.string.batata_com_rucula), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
 
 
         listaPedidos.add(pedido_um);
@@ -89,4 +97,49 @@ public class AppedidaService  extends BaseActivity{
         Log.e(TAG, context.getString(R.string.erro_ao_salvar_usuario));
         return false;
     }
+
+    public static List<Produto> getAllProdutos() {
+        List<Produto> list = new ArrayList<>();
+
+        String url = URL_SERVER + "/" +
+                "appedida/WebServiceAppedida1/Appedida.asmx";
+
+        HttpHelper http = getHttpHelper();
+
+        try {
+
+            http.doGet(url, null, "UTF-8");
+            String xml = http.getString();
+
+            Node root = XML.getRoot(xml, "UTF-8");
+            List<Node> nodeProduto = XML.getChildren(root, "GPSServiceVehicle");
+            for (Node node : nodeProduto) {
+                Produto p = new Produto();
+
+                p.setId_Produto(XML.getText(node, "id_Produto"));
+                p.setDescricao(XML.getText(node, "descricao"));
+                p.setValor(XML.getText(node, "valor"));
+                p.setData_Cadastro(XML.getText(node, "data_Cadastro"));
+                p.setNome(XML.getText(node, "nome"));
+                p.setId_Foto(XML.getText(node, "id_foto"));
+
+                list.add(p);
+            }
+
+            return list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            http.close();
+        }
+
+        return null;
+    }
+
+    private static HttpHelper getHttpHelper() {
+        HttpHelper http = new HttpHelper();
+        http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        return http;
+    }
+
 }

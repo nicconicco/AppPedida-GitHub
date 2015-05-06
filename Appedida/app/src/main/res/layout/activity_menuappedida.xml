@@ -42,31 +42,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:id="@+id/tMeusPedidos"
             >
 
             <TextView
                 android:background="@drawable/selector_btn"
-                android:text="@string/meus_pedidos"
-                android:gravity="center_vertical|center"
-                android:layout_width="match_parent"
-                android:textColor="@color/azul_fundo_oscuro"
-                android:textSize="@dimen/font18"
-                android:layout_height="@dimen/dimen57" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:id="@+id/tEditar"
-            >
-
-            <TextView
-                android:background="@drawable/selector_btn"
-                android:text="@string/editar_meu_perfil"
+                android:text="Visualizar meus pedidos já realizados"
                 android:gravity="center_vertical|center"
                 android:layout_width="match_parent"
                 android:textColor="@color/azul_fundo_oscuro"
