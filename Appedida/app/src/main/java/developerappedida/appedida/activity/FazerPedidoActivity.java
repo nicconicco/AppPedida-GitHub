@@ -1,8 +1,12 @@
 package developerappedida.appedida.activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +29,22 @@ public class FazerPedidoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fazerpedido);
 
-        lAppedida = (ListView) findViewById(R.id.lAppedida);
-        listaPedidos = AppedidaService.getListaDeProdutos(getContext());
+//        lAppedida = (ListView) findViewById(R.id.lAppedida);
+//        listaPedidos = AppedidaService.getListaDeProdutos(getContext());
 
 
 
-        AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Pedido>) listaPedidos);
-
-        lAppedida.setAdapter(adapter);
-
+//        AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Pedido>) listaPedidos);
+//
+//        lAppedida.setAdapter(adapter);
         startTask(taskGetAllProdutos(), R.id.progress);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 
@@ -42,11 +52,16 @@ public class FazerPedidoActivity extends BaseActivity {
         return new BaseTask() {
             @Override
             public void execute() throws Exception {
-                listaProduto = AppedidaService.getAllProdutos();
+                try {
+                    AppedidaService.getAllProdutos();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void updateView() {
+
 
             }
         };

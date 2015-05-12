@@ -4,7 +4,6 @@ package developerappedida.appedida.domain;
 import android.content.Context;
 import android.util.Log;
 
-import org.w3c.dom.Node;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,11 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 import br.livroandroid.db.Session;
-import br.livroandroid.network.HttpHelper;
-import br.livroandroid.xml.XML;
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
 import developerappedida.appedida.activity.BaseActivity;
+import developerappedida.appedida.util.HttpHelper;
 
 public class AppedidaService extends BaseActivity {
 
@@ -98,42 +96,22 @@ public class AppedidaService extends BaseActivity {
         return false;
     }
 
-    public static List<Produto> getAllProdutos() {
-        List<Produto> list = new ArrayList<>();
-
-        String url = URL_SERVER + "/" +
-                "appedida/WebServiceAppedida1/Appedida.asmx";
+    public static void getAllProdutos() throws IOException {
 
         HttpHelper http = getHttpHelper();
 
-        try {
+        Map<String, String> params = getHttpParams();
+        http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/GetAllProduto", params);
+        String json = http.getString();
+        Log.i(TAG, "info: "+json);
 
-            http.doGet(url, null, "UTF-8");
-            String xml = http.getString();
+    }
 
-            Node root = XML.getRoot(xml, "UTF-8");
-            List<Node> nodeProduto = XML.getChildren(root, "GPSServiceVehicle");
-            for (Node node : nodeProduto) {
-                Produto p = new Produto();
-
-                p.setId_Produto(XML.getText(node, "id_Produto"));
-                p.setDescricao(XML.getText(node, "descricao"));
-                p.setValor(XML.getText(node, "valor"));
-                p.setData_Cadastro(XML.getText(node, "data_Cadastro"));
-                p.setNome(XML.getText(node, "nome"));
-                p.setId_Foto(XML.getText(node, "id_foto"));
-
-                list.add(p);
-            }
-
-            return list;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            http.close();
-        }
-
-        return null;
+    private static Map<String, String> getHttpParams() {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("form_name", "form");
+        params.put("mode", "json");
+        return params;
     }
 
     private static HttpHelper getHttpHelper() {

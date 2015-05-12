@@ -40,11 +40,11 @@ public class MainActivity extends BaseActivity {
 
                 User user = AppedidaService.getUser(getContext());
 
-                if(user != null) {
+//                if(user != null) {
                     show(MenuAppedida.class, null);
-                }else{
-                    show(RegistrarAppedida.class, null);
-                }
+//                }else{
+//                    show(RegistrarAppedida.class, null);
+//                }
             }
         };
     }
