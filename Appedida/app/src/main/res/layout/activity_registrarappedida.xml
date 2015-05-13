@@ -9,252 +9,227 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/logo" />
-
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/logo" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/azul_fundo_oscuro"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp">
+                    android:layout_height="match_parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen57"
-                        android:layout_marginTop="@dimen/actionbar_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="@dimen/dimen57"
-                            android:background="@color/branco"
-                            android:textColor="@color/cinza_2"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/vertical_margin"
-                            android:text="@string/login"
-                            android:textSize="@dimen/font16" />
-
-                        <LinearLayout
-                            android:layout_marginLeft="2dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/branco"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/tLogin"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimen57"
-                                android:background="@color/transparente"
-                                android:ellipsize="middle"
-                                android:gravity="center_horizontal|center"
-                                android:hint="@string/digite"
-                                android:inputType="textCapSentences"
-                                android:paddingRight="@dimen/vertical_margin"
-                                android:textColor="@color/cinza_3"
-                                android:textColorHint="@color/cinza_placeholder"
-                                android:textSize="@dimen/font13" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen57"
-                        android:layout_marginTop="@dimen/actionbar_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="@dimen/dimen57"
-                            android:background="@color/branco"
-                            android:textColor="@color/cinza_2"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/vertical_margin"
-                            android:text="@string/senha"
-                            android:textSize="@dimen/font16" />
-
-                        <LinearLayout
-                            android:layout_marginLeft="2dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/branco"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/tSenha"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimen57"
-                                android:background="@color/transparente"
-                                android:ellipsize="middle"
-                                android:gravity="center_horizontal|center"
-                                android:hint="@string/digite_sua_senha"
-                                android:inputType="numberPassword"
-                                android:paddingRight="@dimen/vertical_margin"
-                                android:textColor="@color/cinza_3"
-                                android:textColorHint="@color/cinza_placeholder"
-                                android:textSize="@dimen/font13" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen57"
-                        android:layout_marginTop="@dimen/actionbar_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="@dimen/dimen57"
-                            android:background="@color/branco"
-                            android:textColor="@color/cinza_2"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/vertical_margin"
-                            android:text="@string/email"
-                            android:textSize="@dimen/font16" />
-
-                        <LinearLayout
-                            android:layout_marginLeft="2dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/branco"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/tEmail"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimen57"
-                                android:background="@color/transparente"
-                                android:ellipsize="middle"
-                                android:gravity="center_horizontal|center"
-                                android:hint="@string/digite_seu_email"
-                                android:inputType="textCapSentences"
-                                android:paddingRight="@dimen/vertical_margin"
-                                android:textColor="@color/cinza_3"
-                                android:textColorHint="@color/cinza_placeholder"
-                                android:textSize="@dimen/font13" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen57"
-                        android:layout_marginTop="@dimen/actionbar_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="@dimen/dimen57"
-                            android:background="@color/branco"
-                            android:textColor="@color/cinza_2"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/vertical_margin"
-                            android:text="@string/cpf"
-                            android:textSize="@dimen/font16" />
-
-                        <LinearLayout
-                            android:layout_marginLeft="2dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/branco"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/tCpf"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimen57"
-                                android:background="@color/transparente"
-                                android:ellipsize="middle"
-                                android:gravity="center_horizontal|center"
-                                android:hint="@string/digite_seu_cpf"
-                                android:inputType="textCapSentences"
-                                android:paddingRight="@dimen/vertical_margin"
-                                android:textColor="@color/cinza_3"
-                                android:textColorHint="@color/cinza_placeholder"
-                                android:textSize="@dimen/font13" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimen57"
-                        android:layout_marginTop="@dimen/actionbar_margin"
-                        android:orientation="horizontal"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/azul_fundo_oscuro"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_marginBottom="20dp">
 
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="@dimen/dimen57"
-                            android:background="@color/branco"
-                            android:textColor="@color/cinza_2"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/vertical_margin"
-                            android:text="@string/celular"
-                            android:textSize="@dimen/font13" />
-
                         <LinearLayout
-                            android:layout_marginLeft="2dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@color/branco"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen57"
+                            android:layout_marginTop="@dimen/actionbar_margin"
                             android:orientation="horizontal">
 
-                            <EditText
-                                android:id="@+id/tCelular"
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="100dp"
                                 android:layout_height="@dimen/dimen57"
-                                android:background="@color/transparente"
-                                android:ellipsize="middle"
-                                android:gravity="center_horizontal|center"
-                                android:hint="@string/celular_para_contato"
-                                android:inputType="textCapSentences"
-                                android:paddingRight="@dimen/vertical_margin"
-                                android:textColor="@color/cinza_3"
-                                android:textColorHint="@color/cinza_placeholder"
-                                android:textSize="@dimen/font13" />
+                                android:background="@color/branco"
+                                android:textColor="@color/cinza_2"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/vertical_margin"
+                                android:text="@string/nome"
+                                android:textSize="@dimen/font16" />
+
+                            <LinearLayout
+                                android:layout_marginLeft="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@color/branco"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/tLogin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen57"
+                                    android:background="@color/transparente"
+                                    android:ellipsize="middle"
+                                    android:gravity="center_horizontal|center"
+                                    android:hint="@string/digite_seu_nome"
+                                    android:inputType="textCapSentences"
+                                    android:paddingRight="@dimen/vertical_margin"
+                                    android:textColor="@color/cinza_3"
+                                    android:textColorHint="@color/cinza_placeholder"
+                                    android:textSize="@dimen/font13" />
+                            </LinearLayout>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen57"
+                            android:layout_marginTop="@dimen/actionbar_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="@dimen/dimen57"
+                                android:background="@color/branco"
+                                android:textColor="@color/cinza_2"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/vertical_margin"
+                                android:text="@string/senha"
+                                android:textSize="@dimen/font16" />
+
+                            <LinearLayout
+                                android:layout_marginLeft="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@color/branco"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/tSenha"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen57"
+                                    android:background="@color/transparente"
+                                    android:ellipsize="middle"
+                                    android:gravity="center_horizontal|center"
+                                    android:hint="@string/digite_sua_senha"
+                                    android:inputType="numberPassword"
+                                    android:paddingRight="@dimen/vertical_margin"
+                                    android:textColor="@color/cinza_3"
+                                    android:textColorHint="@color/cinza_placeholder"
+                                    android:textSize="@dimen/font13" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen57"
+                            android:layout_marginTop="@dimen/actionbar_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="@dimen/dimen57"
+                                android:background="@color/branco"
+                                android:textColor="@color/cinza_2"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/vertical_margin"
+                                android:text="@string/email"
+                                android:textSize="@dimen/font16" />
+
+                            <LinearLayout
+                                android:layout_marginLeft="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@color/branco"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/tEmail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen57"
+                                    android:background="@color/transparente"
+                                    android:ellipsize="middle"
+                                    android:gravity="center_horizontal|center"
+                                    android:hint="@string/digite_seu_email"
+                                    android:inputType="textCapSentences"
+                                    android:paddingRight="@dimen/vertical_margin"
+                                    android:textColor="@color/cinza_3"
+                                    android:textColorHint="@color/cinza_placeholder"
+                                    android:textSize="@dimen/font13" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen57"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="@dimen/actionbar_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="@dimen/dimen57"
+                                android:background="@color/branco"
+                                android:textColor="@color/cinza_2"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/vertical_margin"
+                                android:text="@string/cpf"
+                                android:textSize="@dimen/font16" />
+
+                            <LinearLayout
+                                android:layout_marginLeft="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@color/branco"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/tCpf"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dimen57"
+                                    android:background="@color/transparente"
+                                    android:ellipsize="middle"
+                                    android:gravity="center_horizontal|center"
+                                    android:hint="@string/digite_seu_cpf"
+                                    android:inputType="numberDecimal"
+                                    android:paddingRight="@dimen/vertical_margin"
+                                    android:textColor="@color/cinza_3"
+                                    android:textColorHint="@color/cinza_placeholder"
+                                    android:textSize="@dimen/font13" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
-
                 </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:id="@+id/tRegistrar">
-
-                <TextView
-                    android:background="@drawable/selector_btn"
-                    android:text="@string/registrar"
-                    android:gravity="center_vertical|center"
-                    android:layout_width="match_parent"
-                    android:textColor="@color/azul_fundo_oscuro"
-                    android:textSize="@dimen/font18"
-                    android:layout_height="@dimen/dimen57" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:clickable="true"
+            android:id="@+id/tRegistrar">
+
+            <TextView
+                android:background="@drawable/selector_btn"
+                android:text="@string/registrar"
+                android:gravity="center_vertical|center"
+                android:layout_width="match_parent"
+                android:textColor="@color/azul_fundo_oscuro"
+                android:textSize="@dimen/font18"
+                android:layout_height="@dimen/dimen57" />
+        </LinearLayout>
+
+        <include layout="@layout/include_progress" />
+    </FrameLayout>
 </LinearLayout>
+
+

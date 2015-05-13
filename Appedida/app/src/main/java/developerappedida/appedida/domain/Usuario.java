@@ -7,10 +7,13 @@ import br.livroandroid.db.Entity;
 /**
  * Created by mestre on 17/03/15.
  */
-public class User extends Entity {
+public class Usuario extends Entity {
 
-
-    public String login;
+    private String login;
+    private String senha;
+    private String email;
+    private String cpf;
+    private String IsAdmin;
 
     public String getSenha() {
         return senha;
@@ -44,21 +47,6 @@ public class User extends Entity {
         this.cpf = cpf;
     }
 
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String senha;
-    public String email;
-    public String cpf;
-    public String celular;
-
-
-
     @Override
     public ContentValues serialize() {
         ContentValues c = new ContentValues();
@@ -68,7 +56,6 @@ public class User extends Entity {
         c.put("senha", senha);
         c.put("email", email);
         c.put("cpf", cpf);
-        c.put("celular", celular);
 
         return c;
     }
@@ -81,7 +68,6 @@ public class User extends Entity {
         senha = c.getAsString("senha");
         email = c.getAsString("email");
         cpf = c.getAsString("cpf");
-        celular = c.getAsString("celular");
 
     }
 
@@ -92,14 +78,20 @@ public class User extends Entity {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Usuario{" +
                 "login='" + login + '\'' +
                 "login='" + senha + '\'' +
                 "login='" + senha + '\'' +
                 "login='" + email + '\'' +
                 "senha='" + cpf + '\'' +
-                "senha='" + celular + '\'' +
                 '}';
     }
 
+    public String isAdmin() {
+        return IsAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        IsAdmin = isAdmin;
+    }
 }

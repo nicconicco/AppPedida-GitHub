@@ -5,7 +5,7 @@ import android.content.Context;
 import br.livroandroid.LivroAndroidApplication;
 import br.livroandroid.db.Session;
 import br.livroandroid.db.SessionFactory;
-import developerappedida.appedida.domain.User;
+import developerappedida.appedida.domain.Usuario;
 import developerappedida.appedida.db.AppedidaSQLiteOpenHelper;
 
 public class AppedidaAplication extends LivroAndroidApplication {
@@ -21,15 +21,15 @@ public class AppedidaAplication extends LivroAndroidApplication {
 
     private SessionFactory sf;
 
-    public User getUser() {
+    public Usuario getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 
-    private User user;
+    private Usuario user;
 
     public static AppedidaAplication getInstance() {
         return (AppedidaAplication) LivroAndroidApplication.getInstance();

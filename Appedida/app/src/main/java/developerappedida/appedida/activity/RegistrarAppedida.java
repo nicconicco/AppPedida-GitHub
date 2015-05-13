@@ -2,15 +2,20 @@ package developerappedida.appedida.activity;
 
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import br.livroandroid.task.BaseTask;
+import br.livroandroid.task.Task;
+import br.livroandroid.utils.StringUtils;
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
-import developerappedida.appedida.domain.User;
+import developerappedida.appedida.domain.Usuario;
 import developerappedida.appedida.domain.AppedidaService;
-import developerappedida.appedida.util.EmailValidator;
+import developerappedida.appedida.util.MascaraCPF;
 
 
 public class RegistrarAppedida extends BaseActivity {
@@ -21,7 +26,12 @@ public class RegistrarAppedida extends BaseActivity {
     private EditText tSenha;
     private EditText tEmail;
     private EditText tCpf;
-    private EditText tCelular;
+
+    private TextWatcher cpfMask;
+    private String email;
+    private String login;
+    private String senha;
+    private String cpf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +40,50 @@ public class RegistrarAppedida extends BaseActivity {
 
         tRegistrar = (LinearLayout) findViewById(R.id.tRegistrar);
 
+        tRegistrar.setEnabled(false);
+
         tLogin = (EditText) findViewById(R.id.tLogin);
         tSenha = (EditText) findViewById(R.id.tSenha);
         tEmail = (EditText) findViewById(R.id.tEmail);
+
         tCpf = (EditText) findViewById(R.id.tCpf);
-        tCelular = (EditText) findViewById(R.id.tCelular);
+        cpfMask = MascaraCPF.insert("###.###.###-##", tCpf);
+        tCpf.addTextChangedListener(cpfMask);
+
+        TextWatcher watch = new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable arg0) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+                registrarButtonState();
+            }
+        };
+
+        tSenha.addTextChangedListener(watch);
+        tCpf.addTextChangedListener(watch);
 
         tRegistrar.setOnClickListener(registrarUsuario());
+    }
+
+    private void registrarButtonState() {
+
+        login = tLogin.getText().toString();
+        email = tEmail.getText().toString();
+        senha = tSenha.getText().toString();
+        cpf = tCpf.getText().toString();
+
+        if (StringUtils.isNotEmpty(login) && StringUtils.isNotEmpty(email) && StringUtils.isNotEmpty(cpf) && StringUtils.isNotEmpty(senha)){
+            tRegistrar.setEnabled(true);
+        } else {
+            tRegistrar.setEnabled(false);
+        }
     }
 
     private View.OnClickListener registrarUsuario() {
@@ -44,61 +91,70 @@ public class RegistrarAppedida extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                if(validaDados()) {
-                    toast(getString(R.string.usuario_cadastrado));
-                    if(setNewUser()) {
-                        show(MenuAppedida.class);
+                login = tLogin.getText().toString();
+                email = tEmail.getText().toString();
+                senha = tSenha.getText().toString();
+                cpf = tCpf.getText().toString();
+
+                if(login.length()>4) {
+                    if(senha.length()>5) {
+                        if(email.contains("@") && email.contains(".com")) {
+                            if(cpf.length()>10) {
+                                if (setNewUser()) {
+                                    startTask(taskCreateUsuario(), R.id.progress);
+                                }
+                            }else{
+                                toast(R.string.erro_cpf);
+                            }
+                        }else{
+                            toast(R.string.erro_email);
+                        }
+                    }else{
+                        toast(R.string.erro_senha);
                     }
                 }else{
-                    toast(getString(R.string.faltou_algum_dado));
+                    toast(R.string.erro_login);
+                }
+            }
+        };
+    }
+
+    private Task taskCreateUsuario() {
+
+        return new BaseTask() {
+
+            boolean criouUsuario = false;
+            @Override
+            public void execute() throws Exception {
+                criouUsuario = AppedidaService.CreateUsuario();
+            }
+
+            @Override
+            public void updateView() {
+                if(criouUsuario){
+                    toast(getString(R.string.usuario_cadastrado));
+                    show(MenuAppedida.class);
+                }else{
+                    toast(R.string.erro_criar_usuario);
                 }
             }
         };
     }
 
     private boolean setNewUser() {
-        User usuario = new User();
+        Usuario usuario = new Usuario();
         usuario.setLogin(tLogin.getText().toString());
         usuario.setSenha(tSenha.getText().toString());
         usuario.setEmail(tEmail.getText().toString());
         usuario.setCpf(tCpf.getText().toString());
-        usuario.setCelular(tCelular.getText().toString());
+        usuario.setIsAdmin("false");
 
-        if(AppedidaService.saveUser(getContext(), usuario)) {
+        if (AppedidaService.saveUser(getContext(), usuario)) {
             AppedidaAplication.getInstance().setUser(usuario);
             return true;
         }
         return false;
     }
 
-    private boolean validaDados() {
 
-        EmailValidator validarEmail = new EmailValidator();
-
-        boolean validaEmail = validarEmail.validate(tSenha.getText().toString());
-
-        if(!validaEmail){
-            toast(R.string.email_invalido);
-            return false;
-        }
-
-        boolean contemDigitosCelular = tCelular.getText().toString().contains("41") && tCelular!= null && (tCelular.getTextSize()>9);
-
-        if(!contemDigitosCelular){
-            toast(R.string.msg_celular_erro);
-            return false;
-        }
-
-        boolean contemCpf = tCpf.getTextSize() > 10;
-
-        if(!contemCpf){
-            toast(R.string.cpf_invalido);
-            return false;
-        }
-
-        if(tLogin != null && tSenha != null && validaEmail && contemCpf && contemDigitosCelular){
-            return true;
-        }
-        return false;
-    }
 }

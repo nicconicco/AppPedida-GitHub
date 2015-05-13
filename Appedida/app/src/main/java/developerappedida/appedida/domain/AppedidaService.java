@@ -61,11 +61,11 @@ public class AppedidaService extends BaseActivity {
     }
 
 
-    public static User getUser(Context context) {
+    public static Usuario getUser(Context context) {
         Session session = AppedidaAplication.getInstance().getSession(context);
 
         try {
-            List<User> list = session.findAll(User.class);
+            List<Usuario> list = session.findAll(Usuario.class);
             if (list != null && list.size() > 0) {
                 return list.get(0);
             }
@@ -77,11 +77,11 @@ public class AppedidaService extends BaseActivity {
         return null;
     }
 
-    public static boolean saveUser(Context context, User user) {
+    public static boolean saveUser(Context context, Usuario user) {
         Session session = AppedidaAplication.getInstance().getSession(context);
 
         try {
-            List<User> list = session.findAll(User.class);
+            List<Usuario> list = session.findAll(Usuario.class);
             if (list.size() == 0) {
                 session.saveOrUpdate(user);
                 Log.i(TAG, context.getString(R.string.usuario_salvo));
@@ -103,7 +103,7 @@ public class AppedidaService extends BaseActivity {
         Map<String, String> params = getHttpParams();
         http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/GetAllProduto", params);
         String json = http.getString();
-        Log.i(TAG, "info: "+json);
+        Log.i(TAG, "info: " + json);
 
     }
 
@@ -120,4 +120,29 @@ public class AppedidaService extends BaseActivity {
         return http;
     }
 
+    public static boolean CreateUsuario() throws IOException {
+        HttpHelper http = getHttpHelper();
+
+        Map<String, String> params = getHttpParams();
+
+        Usuario usuario = AppedidaAplication.getInstance().getUser();
+
+        try {
+            params.put("nome", usuario.getLogin());
+            params.put("email", usuario.getLogin());
+            params.put("senha", usuario.getLogin());
+            params.put("cpf", usuario.getLogin());
+            params.put("IsAdmin", usuario.isAdmin());
+
+            http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/CreateUsuario ", params);
+            String json = http.getString();
+            Log.i(TAG, "info: " + json);
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

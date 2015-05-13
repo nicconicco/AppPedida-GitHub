@@ -40,4 +40,11 @@
     <string name="msg_celular_erro">Voce esqueceu de adicionar 41 ao numero ou não colocou digitos mínimos</string>
     <string name="email_invalido">Email inválido!</string>
     <string name="cpf_invalido">Faltou preencher corretamente seu CPF</string>
+    <string name="nome">Nome</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="erro_login">Nome deve contar ao menos 5 caracteres</string>
+    <string name="erro_senha">Senha deve conter ao menos 6 caracteres</string>
+    <string name="erro_email">Verifique o email digitado</string>
+    <string name="erro_cpf">CPF deve conter 11 digitos</string>
+    <string name="erro_criar_usuario">Falha ao se conectar com o servidor, tente novamente.</string>
 </resources>
