@@ -9,16 +9,14 @@ public class Produto {
     private String descricao;
     private String valor;
     private String data_Cadastro;
-    private String date;
     private String nome;
     private String id_foto;
 
-    public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String date, String nome, String id_foto) {
+    public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String nome, String id_foto) {
         this.id_Produto = id_Produto;
         this.descricao = descricao;
         this.valor = valor;
         this.data_Cadastro = data_Cadastro;
-        this.date = date;
         this.nome = nome;
         this.id_foto = id_foto;
     }
@@ -65,14 +63,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getId_foto() {

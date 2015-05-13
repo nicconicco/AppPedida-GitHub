@@ -104,7 +104,6 @@ public class AppedidaService extends BaseActivity {
 
         listaPedidos = new ArrayList<Produto>();
 
-
         HttpHelper http = getHttpHelper();
 
         Map<String, String> params = getHttpParams();
@@ -112,20 +111,18 @@ public class AppedidaService extends BaseActivity {
         String json = http.getString();
         Log.i(TAG, "info: " + json);
 
-        JSONObject jObj = new JSONObject(json);
-        JSONArray jsonList = jObj.getJSONArray(json);
-        for (int i = 0; i < jObj.length(); i++) {
-            JSONObject j = jsonList.getJSONObject(i);
+        JSONArray jsonArray = new JSONArray(json);
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject j = jsonArray.getJSONObject(i);
             String idProduto = j.getString("id_Produto");
             String descricao = j.getString("descricao");
             String valor = j.getString("valor");
             String data_Cadastro = j.getString("data_Cadastro");
-            String date = j.getString("");
             String nome = j.getString("nome");
             String id_foto = j.getString("id_foto");
 
 
-            Produto p = new Produto(idProduto, descricao, valor, data_Cadastro, date, nome, id_foto);
+            Produto p = new Produto(idProduto, descricao, valor, data_Cadastro, nome, id_foto);
             listaPedidos.add(p);
 
         }
