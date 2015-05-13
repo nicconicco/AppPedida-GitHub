@@ -138,7 +138,12 @@ public class AppedidaService extends BaseActivity {
             String json = http.getString();
             Log.i(TAG, "info: " + json);
 
-            return true;
+            if(json.contains("true")){
+                return true;
+            }else{
+                return false;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

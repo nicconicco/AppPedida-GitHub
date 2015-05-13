@@ -5,7 +5,40 @@
     android:layout_height="match_parent"
     android:background="@color/azul_fundo">
 
-    <include layout="@layout/logo"/>
+    <include layout="@layout/logo" />
+
+    <LinearLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/azul_fundo_oscuro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font213"
+                android:textColor="@color/branco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seja_bem_vindo" />
+
+            <TextView
+                android:id="@+id/tUsuario"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/font213"
+                android:textColor="@color/branco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/usuario" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,8 +47,7 @@
         android:background="@color/azul_fundo_oscuro"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        >
+        android:layout_marginBottom="20dp">
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -23,8 +55,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:id="@+id/tFazerPedido"
-            >
+            android:id="@+id/tFazerPedido">
 
             <TextView
                 android:background="@drawable/selector_btn"
@@ -41,8 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <TextView
                 android:background="@drawable/selector_btn"

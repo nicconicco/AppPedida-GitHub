@@ -47,4 +47,6 @@
     <string name="erro_email">Verifique o email digitado</string>
     <string name="erro_cpf">CPF deve conter 11 digitos</string>
     <string name="erro_criar_usuario">Falha ao se conectar com o servidor, tente novamente.</string>
+    <string name="seja_bem_vindo">Seja bem vindo :</string>
+    <string name="usuario">User</string>
 </resources>

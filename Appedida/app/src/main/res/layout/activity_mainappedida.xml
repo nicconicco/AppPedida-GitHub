@@ -10,6 +10,11 @@
         android:orientation="vertical"
         android:background="@color/azul_fundo_oscuro">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/logo144"/>
+
 
         <TextView
             android:layout_width="match_parent"
