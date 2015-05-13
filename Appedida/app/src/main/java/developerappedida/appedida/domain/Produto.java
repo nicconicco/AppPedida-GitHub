@@ -5,27 +5,27 @@ package developerappedida.appedida.domain;
  */
 public class Produto {
 
-
     private String id_Produto;
     private String descricao;
     private String valor;
     private String data_Cadastro;
+    private String date;
     private String nome;
+    private String id_foto;
 
-    public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String nome, String id_Foto) {
+    public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String date, String nome, String id_foto) {
         this.id_Produto = id_Produto;
         this.descricao = descricao;
         this.valor = valor;
         this.data_Cadastro = data_Cadastro;
+        this.date = date;
         this.nome = nome;
-        this.id_Foto = id_Foto;
+        this.id_foto = id_foto;
     }
 
     public Produto(){
 
     }
-
-    private String id_Foto;
 
     public String getId_Produto() {
         return id_Produto;
@@ -67,13 +67,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getId_Foto() {
-        return id_Foto;
+    public String getDate() {
+        return date;
     }
 
-    public void setId_Foto(String id_Foto) {
-        this.id_Foto = id_Foto;
+    public void setDate(String date) {
+        this.date = date;
     }
 
+    public String getId_foto() {
+        return id_foto;
+    }
 
+    public void setId_foto(String id_foto) {
+        this.id_foto = id_foto;
+    }
 }

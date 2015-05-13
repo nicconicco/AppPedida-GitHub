@@ -5,6 +5,10 @@ import android.content.Context;
 import android.util.Log;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,45 +24,45 @@ import developerappedida.appedida.util.HttpHelper;
 public class AppedidaService extends BaseActivity {
 
     private static final String TAG = AppedidaService.class.getSimpleName();
-    private static List<Pedido> listaPedidos = new ArrayList<Pedido>();
+    private static List<Produto> listaPedidos = new ArrayList<Produto>();
 
     public static final String URL_SERVER = "http://appedida.com.br";
 
-    public static void getListaDeProdutos(List<Pedido> listaPedidos) {
-        String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile"};
+//    public static void getListaDeProdutos(List<Pedido> listaPedidos) {
+//        String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
+//                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
+//                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
+//                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
+//                "Android", "iPhone", "WindowsMobile"};
+//
+//
+////        listaPedidos.add();
+//
+//        final ArrayList<String> list = new ArrayList<String>();
+//        for (int i = 0; i < values.length; ++i) {
+//            list.add(values[i]);
+//        }
+//    }
 
-
-//        listaPedidos.add();
-
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
-        }
-    }
-
-    public static List<Pedido> getListaDeProdutos(Context context) {
-
-        Pedido pedido_um = new Pedido(context.getString(R.string.batata_com_presunto), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-        Pedido pedido_dois = new Pedido(context.getString(R.string.batata_com_queijo), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-        Pedido pedido_tres = new Pedido(context.getString(R.string.batata_com_oregano), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-        Pedido pedido_quatro = new Pedido(context.getString(R.string.batata_com_batata_palha), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-        Pedido pedido_cinco = new Pedido(context.getString(R.string.batata_com_strogonoff), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-        Pedido pedido_seis = new Pedido(context.getString(R.string.batata_com_rucula), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-
-
-        listaPedidos.add(pedido_um);
-        listaPedidos.add(pedido_dois);
-        listaPedidos.add(pedido_tres);
-        listaPedidos.add(pedido_quatro);
-        listaPedidos.add(pedido_cinco);
-        listaPedidos.add(pedido_seis);
-
-        return listaPedidos;
-    }
+//    public static List<Pedido> getListaDeProdutos(Context context) {
+//
+//        Pedido pedido_um = new Pedido(context.getString(R.string.batata_com_presunto), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//        Pedido pedido_dois = new Pedido(context.getString(R.string.batata_com_queijo), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//        Pedido pedido_tres = new Pedido(context.getString(R.string.batata_com_oregano), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//        Pedido pedido_quatro = new Pedido(context.getString(R.string.batata_com_batata_palha), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//        Pedido pedido_cinco = new Pedido(context.getString(R.string.batata_com_strogonoff), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//        Pedido pedido_seis = new Pedido(context.getString(R.string.batata_com_rucula), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
+//
+//
+//        listaPedidos.add(pedido_um);
+//        listaPedidos.add(pedido_dois);
+//        listaPedidos.add(pedido_tres);
+//        listaPedidos.add(pedido_quatro);
+//        listaPedidos.add(pedido_cinco);
+//        listaPedidos.add(pedido_seis);
+//
+//        return listaPedidos;
+//    }
 
 
     public static Usuario getUser(Context context) {
@@ -96,7 +100,10 @@ public class AppedidaService extends BaseActivity {
         return false;
     }
 
-    public static void getAllProdutos() throws IOException {
+    public static List<Produto> getAllProdutos() throws IOException, JSONException {
+
+        listaPedidos = new ArrayList<Produto>();
+
 
         HttpHelper http = getHttpHelper();
 
@@ -104,6 +111,26 @@ public class AppedidaService extends BaseActivity {
         http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/GetAllProduto", params);
         String json = http.getString();
         Log.i(TAG, "info: " + json);
+
+        JSONObject jObj = new JSONObject(json);
+        JSONArray jsonList = jObj.getJSONArray(json);
+        for (int i = 0; i < jObj.length(); i++) {
+            JSONObject j = jsonList.getJSONObject(i);
+            String idProduto = j.getString("id_Produto");
+            String descricao = j.getString("descricao");
+            String valor = j.getString("valor");
+            String data_Cadastro = j.getString("data_Cadastro");
+            String date = j.getString("");
+            String nome = j.getString("nome");
+            String id_foto = j.getString("id_foto");
+
+
+            Produto p = new Produto(idProduto, descricao, valor, data_Cadastro, date, nome, id_foto);
+            listaPedidos.add(p);
+
+        }
+
+        return listaPedidos;
 
     }
 
@@ -138,9 +165,9 @@ public class AppedidaService extends BaseActivity {
             String json = http.getString();
             Log.i(TAG, "info: " + json);
 
-            if(json.contains("true")){
+            if (json.contains("true")) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
 
