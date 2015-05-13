@@ -10,6 +10,7 @@ import java.util.List;
 import br.livroandroid.task.BaseTask;
 import br.livroandroid.task.Task;
 import developerappedida.appedida.R;
+import developerappedida.appedida.adapter.AdapterAppedida;
 import developerappedida.appedida.domain.AppedidaService;
 import developerappedida.appedida.domain.Produto;
 
@@ -24,15 +25,7 @@ public class FazerPedidoActivity extends BaseActivity {
         setContentView(R.layout.activity_fazerpedido);
 
         lAppedida = (ListView) findViewById(R.id.lAppedida);
-//        listaPedidos = AppedidaService.getListaDeProdutos(getContext());
-
-
-
-//        AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Pedido>) listaPedidos);
-//
-//        lAppedida.setAdapter(adapter);
         startTask(taskGetAllProdutos(), R.id.progress);
-
 
     }
 
@@ -56,9 +49,10 @@ public class FazerPedidoActivity extends BaseActivity {
             @Override
             public void updateView() {
 
-                    if(listaProduto!=null){
-
-                    }
+                if (listaProduto != null) {
+                    AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Produto>) listaProduto);
+                    lAppedida.setAdapter(adapter);
+                }
             }
         };
     }

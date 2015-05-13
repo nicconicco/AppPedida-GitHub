@@ -15,7 +15,7 @@
     <color name="cinza">#b7d9ea</color>
     <color name="cinza_cadastro">#8c96a0</color>
     <color name="cinza_letra">#ff7f898d</color>
-    <color name="azul_fundo_oscuro">#ff273243</color>
+
     <color name="azul_teste">#ff67798b</color>
     <color name="azul_teste2">#4b5c6e</color>
     <color name="oscuro_2">#404c59</color>
@@ -31,7 +31,7 @@
     <color name="cinza_3">#6c7478</color>
     <color name="cinza_placeholder">#b7c1c5</color>
     <color name="azul_1">#87a5bf</color>
-
+    <color name="azul_fundo_oscuro">#ff273243</color>
     <color name="azul_fundo">#4c6477</color>
     <color name="verde_btn">#22ab55</color>
 
