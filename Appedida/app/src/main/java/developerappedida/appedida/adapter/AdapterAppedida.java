@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.livroandroid.utils.ColorUtils;
 import developerappedida.appedida.R;
 import developerappedida.appedida.domain.Produto;
 
@@ -58,16 +59,35 @@ public class AdapterAppedida  extends BaseAdapter {
         tDescricao.setText(item.getDescricao().toString());
 //        iProduto.setImageResource(item.getId_foto());
 
-        lRowLista.setOnClickListener(selecionaItem());
+        lRowLista.setOnClickListener(selecionaItem(item));
+
+        if(item.isSelected()){
+            lRowLista.setBackgroundColor(ColorUtils.getColor(context, R.color.branco));
+            tProduto.setTextColor(ColorUtils.getColor(context, R.color.preto));
+            tPreco.setTextColor(ColorUtils.getColor(context, R.color.preto));
+            tDescricao.setTextColor(ColorUtils.getColor(context, R.color.preto));
+        }else{
+            lRowLista.setBackgroundColor(ColorUtils.getColor(context, R.color.azul_fundo_oscuro));
+            tProduto.setTextColor(ColorUtils.getColor(context, R.color.branco));
+            tPreco.setTextColor(ColorUtils.getColor(context, R.color.branco));
+            tDescricao.setTextColor(ColorUtils.getColor(context, R.color.branco));
+        }
+
 
         return row;
     }
 
-    private View.OnClickListener selecionaItem() {
+    private View.OnClickListener selecionaItem(final Produto item) {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(item.isSelected() && item != null){
+                    item.setIsSelected(false);
+                    notifyDataSetChanged();
+                }else{
+                    item.setIsSelected(true);
+                    notifyDataSetChanged();
+                }
             }
         };
     }

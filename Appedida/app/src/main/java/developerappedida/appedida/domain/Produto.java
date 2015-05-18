@@ -11,6 +11,7 @@ public class Produto {
     private String data_Cadastro;
     private String nome;
     private String id_foto;
+    private boolean isSelected;
 
     public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String nome, String id_foto) {
         this.id_Produto = id_Produto;
@@ -19,6 +20,7 @@ public class Produto {
         this.data_Cadastro = data_Cadastro;
         this.nome = nome;
         this.id_foto = id_foto;
+        this.isSelected = false;
     }
 
     public Produto(){
@@ -71,5 +73,13 @@ public class Produto {
 
     public void setId_foto(String id_foto) {
         this.id_foto = id_foto;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setIsSelected(boolean isSelected) {
+        this.isSelected = isSelected;
     }
 }

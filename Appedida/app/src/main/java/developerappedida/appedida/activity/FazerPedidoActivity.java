@@ -1,6 +1,7 @@
 package developerappedida.appedida.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import developerappedida.appedida.domain.Produto;
 
 public class FazerPedidoActivity extends BaseActivity {
 
+    private static final String TAG = FazerPedidoActivity.class.getSimpleName();
     private ListView lAppedida;
     private List<Produto> listaProduto = new ArrayList<Produto>();
 
@@ -42,7 +44,7 @@ public class FazerPedidoActivity extends BaseActivity {
                 try {
                     listaProduto = AppedidaService.getAllProdutos();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, e.getMessage(), e);
                 }
             }
 
