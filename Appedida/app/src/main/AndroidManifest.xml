@@ -40,7 +40,9 @@
         <activity
             android:name=".activity.EditarPerfilActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activity.SelecionarUnidadesActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

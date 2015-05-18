@@ -52,4 +52,7 @@
     <string name="selecione_um_ou">Selecione um ou mais itens para continuar realizando seu pedido</string>
     <string name="confirma_item_selecionados">Você selecionou os seguintes itens </string>
     <string name="ao_confirmar">Ao confirmar na seguinte tela você poderá selecionar o número de unidades que deseja.</string>
+    <string name="selecione_a_quantidade">Selecione a quantidade que deseja para cada unidade selecionada e confira quanto você irá pagar.</string>
+    <string name="total_a_pagar">Total a pagar : R$</string>
+    <string name="finalizar_pedido">Finalizar pedido</string>
 </resources>
