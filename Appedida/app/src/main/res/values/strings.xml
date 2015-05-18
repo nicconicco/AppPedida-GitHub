@@ -50,4 +50,6 @@
     <string name="seja_bem_vindo">Seja bem vindo :</string>
     <string name="usuario">User</string>
     <string name="selecione_um_ou">Selecione um ou mais itens para continuar realizando seu pedido</string>
+    <string name="confirma_item_selecionados">Você selecionou os seguintes itens </string>
+    <string name="ao_confirmar">Ao confirmar na seguinte tela você poderá selecionar o número de unidades que deseja.</string>
 </resources>

@@ -2,13 +2,20 @@ package developerappedida.appedida;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.livroandroid.LivroAndroidApplication;
 import br.livroandroid.db.Session;
 import br.livroandroid.db.SessionFactory;
+import developerappedida.appedida.domain.Produto;
 import developerappedida.appedida.domain.Usuario;
 import developerappedida.appedida.db.AppedidaSQLiteOpenHelper;
 
 public class AppedidaAplication extends LivroAndroidApplication {
+
+
+    private List<Produto> listProduto = new ArrayList<Produto>();
 
 
     @Override
@@ -35,8 +42,6 @@ public class AppedidaAplication extends LivroAndroidApplication {
         return (AppedidaAplication) LivroAndroidApplication.getInstance();
     }
 
-
-
     public Session getSession(Context context) {
         return sf.getSession(context, "_id");
     }
@@ -59,5 +64,13 @@ public class AppedidaAplication extends LivroAndroidApplication {
     @Override
     public int getProgressId() {
         return 0;
+    }
+
+    public List<Produto> getListProduto() {
+        return listProduto;
+    }
+
+    public void setListProduto(List<Produto> listProduto) {
+        this.listProduto = listProduto;
     }
 }

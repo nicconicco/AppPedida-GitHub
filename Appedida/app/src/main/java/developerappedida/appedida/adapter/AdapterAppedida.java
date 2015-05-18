@@ -13,14 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.livroandroid.utils.ColorUtils;
+import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
 import developerappedida.appedida.domain.Produto;
 
-public class AdapterAppedida  extends BaseAdapter {
+public class AdapterAppedida extends BaseAdapter {
 
     private final LayoutInflater inflater;
     private Activity context;
     private List<Produto> list;
+    private List<Produto> listProduto = new ArrayList<Produto>();
 
     public AdapterAppedida(Activity context, ArrayList<Produto> list) {
         this.context = context;
@@ -61,12 +63,12 @@ public class AdapterAppedida  extends BaseAdapter {
 
         lRowLista.setOnClickListener(selecionaItem(item));
 
-        if(item.isSelected()){
+        if (item.isSelected()) {
             lRowLista.setBackgroundColor(ColorUtils.getColor(context, R.color.branco));
             tProduto.setTextColor(ColorUtils.getColor(context, R.color.preto));
             tPreco.setTextColor(ColorUtils.getColor(context, R.color.preto));
             tDescricao.setTextColor(ColorUtils.getColor(context, R.color.preto));
-        }else{
+        } else {
             lRowLista.setBackgroundColor(ColorUtils.getColor(context, R.color.azul_fundo_oscuro));
             tProduto.setTextColor(ColorUtils.getColor(context, R.color.branco));
             tPreco.setTextColor(ColorUtils.getColor(context, R.color.branco));
@@ -81,12 +83,18 @@ public class AdapterAppedida  extends BaseAdapter {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(item.isSelected() && item != null){
+                if (item.isSelected() && item != null) {
                     item.setIsSelected(false);
+                    listProduto = AppedidaAplication.getInstance().getListProduto();
+                    listProduto.remove(item);
+                    AppedidaAplication.getInstance().setListProduto(listProduto);
                     notifyDataSetChanged();
-                }else{
+                } else {
                     item.setIsSelected(true);
                     notifyDataSetChanged();
+                    listProduto = AppedidaAplication.getInstance().getListProduto();
+                    listProduto.add(item);
+                    AppedidaAplication.getInstance().setListProduto(listProduto);
                 }
             }
         };
