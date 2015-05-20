@@ -10,7 +10,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
+import developerappedida.appedida.activity.SelecionarUnidadesActivity;
 import developerappedida.appedida.domain.Produto;
 
 /**
@@ -52,10 +54,56 @@ public class AdapterAppedidaSelecionados extends BaseAdapter {
 
         TextView tProduto = (TextView) row.findViewById(R.id.tProduto);
         TextView tPreco = (TextView) row.findViewById(R.id.tPreco);
+        TextView tMais = (TextView) row.findViewById(R.id.tMais);
+        TextView tMenos = (TextView) row.findViewById(R.id.tMenos);
+        TextView tContador = (TextView) row.findViewById(R.id.tContador);
 
         tProduto.setText(item.getNome().toString());
         tPreco.setText(item.getValor().toString());
 
+        tMais.setOnClickListener(aumentaValor(tContador, item));
+        tMenos.setOnClickListener(diminuiValor(tContador, item));
+
         return row;
     }
+
+    private View.OnClickListener diminuiValor(final TextView tContador,final Produto item) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = Integer.valueOf(tContador.getText().toString());
+                if (i != 1)
+                    i--;
+                tContador.setText(i + "");
+                item.setQuantidade(i);
+                setQuantidadeNaLista(item);
+
+            }
+        };
+    }
+
+    private void setQuantidadeNaLista(Produto item) {
+        for(Produto d: list){
+            if(d == item){
+                d.setQuantidade(item.getQuantidade());
+            }
+        }
+
+        AppedidaAplication.getInstance().setListProduto(list);
+    }
+
+    private View.OnClickListener aumentaValor(final TextView tContador,final Produto item) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = Integer.valueOf(tContador.getText().toString());
+                i++;
+                tContador.setText(i + "");
+                item.setQuantidade(i);
+                setQuantidadeNaLista(item);
+
+            }
+        };
+    }
+
 }

@@ -17,8 +17,7 @@
             android:id="@+id/tProduto"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/branco"
             android:text="@string/batata_com_batata_palha"
@@ -27,16 +26,59 @@
         <TextView
             android:id="@+id/tPreco"
             android:textColor="@color/branco"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_height="@dimen/dimen57"
             android:gravity="center"
             android:text="@string/preco"
             android:textSize="@dimen/font18" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="140dp"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tMais"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:clickable="true"
+                android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:text="+"
+                android:background="@color/cinza_1"
+                android:gravity="center"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/font26"/>
 
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:text="1"
+                android:id="@+id/tContador"
+                android:background="@color/branco"
+                android:gravity="center"
+                android:textColor="@color/preto"
+                android:layout_marginBottom="2dp"
+                android:textSize="@dimen/font213"/>
+
+            <TextView
+                android:id="@+id/tMenos"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="-"
+                android:background="@color/cinza_1"
+                android:gravity="center"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/font26"/>
+        </LinearLayout>
 
     </LinearLayout>
 

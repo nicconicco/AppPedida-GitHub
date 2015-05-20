@@ -12,6 +12,7 @@ public class Produto {
     private String nome;
     private String id_foto;
     private boolean isSelected;
+    private int quantidade;
 
     public Produto(String id_Produto, String descricao, String valor, String data_Cadastro, String nome, String id_foto) {
         this.id_Produto = id_Produto;
@@ -21,6 +22,7 @@ public class Produto {
         this.nome = nome;
         this.id_foto = id_foto;
         this.isSelected = false;
+        this.quantidade = 1;
     }
 
     public Produto(){
@@ -81,5 +83,13 @@ public class Produto {
 
     public void setIsSelected(boolean isSelected) {
         this.isSelected = isSelected;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }

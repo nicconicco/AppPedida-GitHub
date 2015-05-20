@@ -55,4 +55,8 @@
     <string name="selecione_a_quantidade">Selecione a quantidade que deseja para cada unidade selecionada e confira quanto você irá pagar.</string>
     <string name="total_a_pagar">Total a pagar : R$</string>
     <string name="finalizar_pedido">Finalizar pedido</string>
+    <string name="unidades">Unidades</string>
+    <string name="os_itens">Os itens que você selecionou ficaram assim</string>
+    <string name="total">TOTAL :</string>
+    <string name="dando_um_total">Dando um total de : R$</string>
 </resources>

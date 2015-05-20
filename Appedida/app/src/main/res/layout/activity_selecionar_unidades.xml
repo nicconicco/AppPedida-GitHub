@@ -45,43 +45,12 @@
             <ListView
                 android:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="match_parent"
                 android:id="@+id/lAppedida"></ListView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/branco" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:paddingTop="5dp"
-                android:background="@color/azul_fundo_oscuro"
-                android:layout_marginLeft="20dp"
-                android:gravity="center|left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/branco"
-                android:text="@string/total_a_pagar" />
-
-            <TextView
-                android:paddingTop="5dp"
-                android:background="@color/azul_fundo_oscuro"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="10dp"
-                android:gravity="center|left"
-                android:textSize="@dimen/font213"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/branco"
-                android:text="24,50" />
-        </LinearLayout>
 
 
     </LinearLayout>
@@ -91,7 +60,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:id="@+id/tContinuar">
+        android:id="@+id/tFinalizarPedido">
 
         <TextView
             android:background="@drawable/selector_btn"

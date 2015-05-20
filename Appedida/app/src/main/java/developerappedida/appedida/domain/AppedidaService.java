@@ -28,42 +28,6 @@ public class AppedidaService extends BaseActivity {
 
     public static final String URL_SERVER = "http://appedida.com.br";
 
-//    public static void getListaDeProdutos(List<Pedido> listaPedidos) {
-//        String[] values = new String[]{"Android", "iPhone", "WindowsMobile",
-//                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-//                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-//                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-//                "Android", "iPhone", "WindowsMobile"};
-//
-//
-////        listaPedidos.add();
-//
-//        final ArrayList<String> list = new ArrayList<String>();
-//        for (int i = 0; i < values.length; ++i) {
-//            list.add(values[i]);
-//        }
-//    }
-
-//    public static List<Pedido> getListaDeProdutos(Context context) {
-//
-//        Pedido pedido_um = new Pedido(context.getString(R.string.batata_com_presunto), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//        Pedido pedido_dois = new Pedido(context.getString(R.string.batata_com_queijo), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//        Pedido pedido_tres = new Pedido(context.getString(R.string.batata_com_oregano), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//        Pedido pedido_quatro = new Pedido(context.getString(R.string.batata_com_batata_palha), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//        Pedido pedido_cinco = new Pedido(context.getString(R.string.batata_com_strogonoff), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//        Pedido pedido_seis = new Pedido(context.getString(R.string.batata_com_rucula), context.getString(R.string.reais) + " " + context.getString(R.string.dez_reais), false);
-//
-//
-//        listaPedidos.add(pedido_um);
-//        listaPedidos.add(pedido_dois);
-//        listaPedidos.add(pedido_tres);
-//        listaPedidos.add(pedido_quatro);
-//        listaPedidos.add(pedido_cinco);
-//        listaPedidos.add(pedido_seis);
-//
-//        return listaPedidos;
-//    }
-
 
     public static Usuario getUser(Context context) {
         Session session = AppedidaAplication.getInstance().getSession(context);
@@ -173,5 +137,47 @@ public class AppedidaService extends BaseActivity {
         }
 
         return false;
+    }
+
+    public static boolean CreatePedido(List<Produto> listaProdutoSelecionados, String precoTotal) throws IOException {
+        HttpHelper http = getHttpHelper();
+
+        String listaConcatenada = concatenarListaDeProdutosSelecionados(listaProdutoSelecionados);
+
+        Map<String, String> params = getHttpParams();
+
+        Usuario usuario = AppedidaAplication.getInstance().getUser();
+
+        try {
+            params.put("idsProdutos", listaConcatenada);
+            params.put("valor_Pedido", precoTotal);
+            params.put("idUsuario", "15");
+
+            http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/CreatePedido ", params);
+            String json = http.getString();
+            Log.i(TAG, "info: " + json);
+
+            if (json.contains("true")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    private static String concatenarListaDeProdutosSelecionados(List<Produto> listaProdutoSelecionados) {
+
+        String concatenar = "";
+
+        for(Produto d: listaProdutoSelecionados){
+            concatenar += d.getId_Produto() + " |";
+        }
+
+        return concatenar;
     }
 }
