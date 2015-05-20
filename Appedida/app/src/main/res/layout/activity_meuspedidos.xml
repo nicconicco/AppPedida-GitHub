@@ -20,6 +20,52 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/azul_fundo_oscuro"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:id="@+id/tFazerPedido">
+
+                    <TextView
+                        android:background="@drawable/selector_btn"
+                        android:text="@string/fazer_pedido"
+                        android:gravity="center_vertical|center"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/azul_fundo_oscuro"
+                        android:textSize="@dimen/font18"
+                        android:layout_height="@dimen/dimen57" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/tVisualizarPedidos"
+                    android:gravity="center">
+
+                    <TextView
+                        android:background="@drawable/selector_btn"
+                        android:text="Visualizar meus pedidos já realizados"
+                        android:gravity="center_vertical|center"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/azul_fundo_oscuro"
+                        android:textSize="@dimen/font18"
+                        android:layout_height="@dimen/dimen57" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -14,6 +14,7 @@ public class Usuario extends Entity {
     private String email;
     private String cpf;
     private String IsAdmin;
+    private int id_Usuario;
 
     public String getSenha() {
         return senha;
@@ -93,5 +94,13 @@ public class Usuario extends Entity {
 
     public void setIsAdmin(String isAdmin) {
         IsAdmin = isAdmin;
+    }
+
+    public int getId_Usuario() {
+        return id_Usuario;
+    }
+
+    public void setId_Usuario(int id_Usuario) {
+        this.id_Usuario = id_Usuario;
     }
 }

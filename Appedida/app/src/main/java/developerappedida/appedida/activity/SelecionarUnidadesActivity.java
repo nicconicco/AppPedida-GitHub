@@ -34,6 +34,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
     private TextView tPrecoTotal;
     private ListView lAppedidaSelecionados;
     private boolean realizouPedido = false;
+    private boolean realizouAutenticacao = false;
     private String precoTotal;
 
     @Override
@@ -96,7 +97,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
         dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startTask(taskCreatePedido(precoTotal), R.id.progress);
+                startTask(tastkAutenticarUsuarioMobile(), R.id.progress);
             }
         });
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -108,12 +109,30 @@ public class SelecionarUnidadesActivity extends BaseActivity {
         dialog.show();
     }
 
-    private Task taskCreatePedido(final String precoTotal) {
+    private Task tastkAutenticarUsuarioMobile() {
+        return new BaseTask() {
+            @Override
+            public void execute() throws Exception {
+                // carlosteste1234@gmail.com 123456 CarlosTeste
+                realizouAutenticacao = AppedidaService.AutenticarUsuarioMobile(getContext());
+            }
+
+            @Override
+            public void updateView() {
+                if (realizouAutenticacao) {
+                    toast("Usuario autenticado, seu pedido esta sendo realizado.");
+                    startTask(taskCreatePedido(getContext(), precoTotal), R.id.progress);
+                }
+            }
+        };
+    }
+
+    private Task taskCreatePedido(final Context context, final String precoTotal) {
         return new BaseTask() {
             @Override
             public void execute() throws Exception {
                 try {
-                    realizouPedido = AppedidaService.CreatePedido(listaProdutoSelecionados, precoTotal);
+                    realizouPedido = AppedidaService.CreatePedido(context, listaProdutoSelecionados, precoTotal);
                 } catch (IOException e) {
                     Log.e(TAG, e.getMessage(), e);
                 }
@@ -126,7 +145,6 @@ public class SelecionarUnidadesActivity extends BaseActivity {
                     toast("Pedido realizado com sucesso!");
                         show(MenuAppedida.class);
                 }
-
             }
         };
     }

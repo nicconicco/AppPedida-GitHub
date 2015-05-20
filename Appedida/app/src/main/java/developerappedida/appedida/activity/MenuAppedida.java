@@ -14,6 +14,7 @@ import developerappedida.appedida.domain.Usuario;
 public class MenuAppedida extends BaseActivity {
 
     private LinearLayout tFazerPedido;
+    private LinearLayout tVisualizarPedidos;
     private Usuario user;
     private TextView tUsuario;
 
@@ -30,7 +31,19 @@ public class MenuAppedida extends BaseActivity {
         }
 
         tFazerPedido = (LinearLayout) findViewById(R.id.tFazerPedido);
-        tFazerPedido.findViewById(R.id.tFazerPedido).setOnClickListener(fazerPedido());
+        tFazerPedido.setOnClickListener(fazerPedido());
+
+        tVisualizarPedidos = (LinearLayout) findViewById(R.id.tVisualizarPedidos);
+        tVisualizarPedidos.setOnClickListener(visualizarPedidos());
+    }
+
+    private View.OnClickListener visualizarPedidos() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show(MeusPedidosActivity.class);
+            }
+        };
     }
 
     private View.OnClickListener fazerPedido() {

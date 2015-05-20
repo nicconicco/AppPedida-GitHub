@@ -102,6 +102,7 @@ public class AppedidaService extends BaseActivity {
         return params;
     }
 
+
     private static HttpHelper getHttpHelper() {
         HttpHelper http = new HttpHelper();
         http.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -114,13 +115,14 @@ public class AppedidaService extends BaseActivity {
         Map<String, String> params = getHttpParams();
 
         Usuario usuario = AppedidaAplication.getInstance().getUser();
+        params.put("nome", usuario.getLogin());
+        params.put("email", usuario.getEmail());
+        params.put("senha", usuario.getSenha());
+        params.put("cpf", usuario.getCpf());
+        params.put("IsAdmin", usuario.isAdmin());
 
         try {
-            params.put("nome", usuario.getLogin());
-            params.put("email", usuario.getLogin());
-            params.put("senha", usuario.getLogin());
-            params.put("cpf", usuario.getLogin());
-            params.put("IsAdmin", usuario.isAdmin());
+
 
             http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/CreateUsuario ", params);
             String json = http.getString();
@@ -139,32 +141,35 @@ public class AppedidaService extends BaseActivity {
         return false;
     }
 
-    public static boolean CreatePedido(List<Produto> listaProdutoSelecionados, String precoTotal) throws IOException {
+    public static boolean CreatePedido(Context context, List<Produto> listaProdutoSelecionados, String precoTotal) throws IOException {
         HttpHelper http = getHttpHelper();
 
         String listaConcatenada = concatenarListaDeProdutosSelecionados(listaProdutoSelecionados);
 
         Map<String, String> params = getHttpParams();
 
-        Usuario usuario = AppedidaAplication.getInstance().getUser();
+        Usuario usuario = AppedidaService.getUser(context);
 
-        try {
-            params.put("idsProdutos", listaConcatenada);
-            params.put("valor_Pedido", precoTotal);
-            params.put("idUsuario", "15");
+        if(usuario.getId_Usuario() != 0) {
 
-            http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/CreatePedido ", params);
-            String json = http.getString();
-            Log.i(TAG, "info: " + json);
+            try {
+                params.put("idsProdutos", listaConcatenada);
+                params.put("valor_Pedido", precoTotal);
+                params.put("idUsuario", String.valueOf(usuario.getId_Usuario()));
 
-            if (json.contains("true")) {
-                return true;
-            } else {
-                return false;
+                http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/CreatePedido ", params);
+                String json = http.getString();
+                Log.i(TAG, "info: " + json);
+
+                if (json.contains("true")) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return false;
@@ -179,5 +184,53 @@ public class AppedidaService extends BaseActivity {
         }
 
         return concatenar;
+    }
+
+    public static boolean AutenticarUsuarioMobile(Context context) {
+        Usuario usuario = AppedidaService.getUser(context);
+        Usuario u = new Usuario();
+
+        HttpHelper http = getHttpHelper();
+
+        Map<String, String> params = getHttpParams();
+
+        try {
+
+            params.put("email", usuario.getEmail());
+            params.put("senha", usuario.getSenha());
+
+            http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/AutenticarUsuarioMobile ", params);
+            String json = http.getString();
+            Log.i(TAG, "info: " + json);
+
+            JSONArray jsonArray = new JSONArray(json);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject j = jsonArray.getJSONObject(i);
+
+                int id_Usuario = j.getInt("id_Usuario");
+                String nome = j.getString("nome");
+                String email = j.getString("email");
+                String senha = j.getString("senha");
+
+                u.setId_Usuario(id_Usuario);
+                u.setLogin(nome);
+                u.setEmail(email);
+                u.setSenha(senha);
+
+            }
+
+            if(usuario.getEmail() == u.getEmail() && usuario.getSenha() == u.getSenha()){
+                usuario.setId_Usuario(u.getId_Usuario());
+                AppedidaAplication.getInstance().setUser(usuario);
+                return true;
+            }else{
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

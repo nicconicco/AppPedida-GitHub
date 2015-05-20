@@ -147,7 +147,7 @@ public class RegistrarAppedida extends BaseActivity {
         usuario.setSenha(tSenha.getText().toString());
         usuario.setEmail(tEmail.getText().toString());
         usuario.setCpf(tCpf.getText().toString());
-        usuario.setIsAdmin("false");
+        usuario.setIsAdmin("");
 
         if (AppedidaService.saveUser(getContext(), usuario)) {
             AppedidaAplication.getInstance().setUser(usuario);
