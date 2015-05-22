@@ -148,7 +148,7 @@ public class AppedidaService extends BaseActivity {
 
         Map<String, String> params = getHttpParams();
 
-        Usuario usuario = AppedidaService.getUser(context);
+        Usuario usuario = AppedidaAplication.getInstance().getUser();
 
         if(usuario.getId_Usuario() != 0) {
 
@@ -203,27 +203,15 @@ public class AppedidaService extends BaseActivity {
             String json = http.getString();
             Log.i(TAG, "info: " + json);
 
-            JSONArray jsonArray = new JSONArray(json);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject j = jsonArray.getJSONObject(i);
 
-                int id_Usuario = j.getInt("id_Usuario");
-                String nome = j.getString("nome");
-                String email = j.getString("email");
-                String senha = j.getString("senha");
-
-                u.setId_Usuario(id_Usuario);
-                u.setLogin(nome);
-                u.setEmail(email);
-                u.setSenha(senha);
-
-            }
-
-            if(usuario.getEmail() == u.getEmail() && usuario.getSenha() == u.getSenha()){
+            if (json != null) {
+                JSONObject j = new JSONObject(json);
+                String id_Usuario = j.getString("id_Usuario");
+                u.setId_Usuario(Integer.valueOf(id_Usuario));
                 usuario.setId_Usuario(u.getId_Usuario());
                 AppedidaAplication.getInstance().setUser(usuario);
                 return true;
-            }else{
+            } else {
                 return false;
             }
 

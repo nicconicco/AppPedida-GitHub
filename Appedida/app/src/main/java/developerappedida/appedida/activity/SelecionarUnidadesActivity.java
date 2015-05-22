@@ -97,7 +97,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
         dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startTask(tastkAutenticarUsuarioMobile(), R.id.progress);
+                startTaskParallel(tastkAutenticarUsuarioMobile(), R.id.progress);
             }
         });
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -121,7 +121,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
             public void updateView() {
                 if (realizouAutenticacao) {
                     toast("Usuario autenticado, seu pedido esta sendo realizado.");
-                    startTask(taskCreatePedido(getContext(), precoTotal), R.id.progress);
+                    startTaskParallel(taskCreatePedido(getContext(), precoTotal), R.id.progress);
                 }
             }
         };
