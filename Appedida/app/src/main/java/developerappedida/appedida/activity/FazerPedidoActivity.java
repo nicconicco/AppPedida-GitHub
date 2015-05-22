@@ -35,7 +35,7 @@ public class FazerPedidoActivity extends BaseActivity {
         setContentView(R.layout.activity_fazerpedido);
 
         lAppedida = (ListView) findViewById(R.id.lAppedida);
-        startTask(taskGetAllProdutos(), R.id.progress);
+        startTaskParallel(taskGetAllProdutos(), R.id.progress);
 
         findViewById(R.id.tContinuar).setOnClickListener(continuarCompra());
 
