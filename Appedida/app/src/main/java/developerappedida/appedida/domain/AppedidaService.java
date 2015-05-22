@@ -64,6 +64,36 @@ public class AppedidaService extends BaseActivity {
         return false;
     }
 
+    public static List<Pedido> getPedidosJaRealizados(Context context) {
+        Session session = AppedidaAplication.getInstance().getSession(context);
+
+        try {
+            List<Pedido> list = session.findAll(Pedido.class);
+            if (list != null && list.size() > 0) {
+                return list;
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return null;
+    }
+
+    public static boolean salvarPedido(Context context, Pedido pedido) {
+        Session session = AppedidaAplication.getInstance().getSession(context);
+
+        try {
+                session.saveOrUpdate(pedido);
+                Log.i(TAG, context.getString(R.string.pedido_salvo));
+                return true;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
     public static List<Produto> getAllProdutos() throws IOException, JSONException {
 
         listaPedidos = new ArrayList<Produto>();
@@ -150,6 +180,9 @@ public class AppedidaService extends BaseActivity {
 
         Usuario usuario = AppedidaAplication.getInstance().getUser();
 
+
+        precoTotal = precoTotal.replace(",",".");
+
         if(usuario.getId_Usuario() != 0) {
 
             try {
@@ -162,6 +195,9 @@ public class AppedidaService extends BaseActivity {
                 Log.i(TAG, "info: " + json);
 
                 if (json.contains("true")) {
+
+                    Pedido p = new Pedido(listaConcatenada , precoTotal);
+                    salvarPedido(context, p);
                     return true;
                 } else {
                     return false;

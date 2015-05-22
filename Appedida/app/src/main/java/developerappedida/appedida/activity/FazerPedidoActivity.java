@@ -68,6 +68,7 @@ public class FazerPedidoActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                     show(SelecionarUnidadesActivity.class);
+                finish();
             }
         });
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

@@ -59,4 +59,7 @@
     <string name="os_itens">Os itens que você selecionou ficaram assim</string>
     <string name="total">TOTAL :</string>
     <string name="dando_um_total">Dando um total de : R$</string>
+    <string name="pedido_salvo">Pedido salvo com sucesso</string>
+    <string name="voce_ja_realizou">Você já realizou os seguintes pedidos, fique tranquilo pois estes pedidos só serão armazenados se a operação do seu pedido foi realizada com sucesso.</string>
+    <string name="voltar">Voltar</string>
 </resources>

@@ -122,6 +122,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
                 if (realizouAutenticacao) {
                     toast("Usuario autenticado, seu pedido esta sendo realizado.");
                     startTaskParallel(taskCreatePedido(getContext(), precoTotal), R.id.progress);
+                    finish();
                 }
             }
         };
@@ -143,7 +144,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
 
                 if(realizouPedido){
                     toast("Pedido realizado com sucesso!");
-                        show(MenuAppedida.class);
+                        show(MeusPedidosActivity.class);
                 }
             }
         };

@@ -134,6 +134,7 @@ public class RegistrarAppedida extends BaseActivity {
                 if(criouUsuario){
                     toast(getString(R.string.usuario_cadastrado));
                     show(MenuAppedida.class);
+                    finish();
                 }else{
                     toast(R.string.erro_criar_usuario);
                 }
