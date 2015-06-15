@@ -62,4 +62,5 @@
     <string name="pedido_salvo">Pedido salvo com sucesso</string>
     <string name="voce_ja_realizou">Você já realizou os seguintes pedidos, fique tranquilo pois estes pedidos só serão armazenados se a operação do seu pedido foi realizada com sucesso.</string>
     <string name="voltar">Voltar</string>
+    <string name="selecione_produtos">Selecione ao menos 1 produto para continuar realizando seu pedido.</string>
 </resources>

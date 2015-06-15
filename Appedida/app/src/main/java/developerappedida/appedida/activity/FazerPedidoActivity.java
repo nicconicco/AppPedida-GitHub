@@ -67,8 +67,12 @@ public class FazerPedidoActivity extends BaseActivity {
         dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                if(listaProdutoSelecionados != null) {
                     show(SelecionarUnidadesActivity.class);
-                finish();
+                    finish();
+                }else {
+                    toast(R.string.selecione_produtos);
+                }
             }
         });
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
