@@ -17,6 +17,16 @@ public class AppedidaAplication extends LivroAndroidApplication {
 
     private List<Produto> listProduto = new ArrayList<Produto>();
 
+    public List<Produto> getListProdutoSelecionados() {
+        return listProdutoSelecionados;
+    }
+
+    public void setListProdutoSelecionados(List<Produto> listProdutoSelecionados) {
+        this.listProdutoSelecionados = listProdutoSelecionados;
+    }
+
+    private List<Produto> listProdutoSelecionados = new ArrayList<Produto>();
+
 
     @Override
     public void onCreate() {

@@ -57,7 +57,7 @@ public class AdapterAppedida extends BaseAdapter {
         LinearLayout lRowLista = (LinearLayout) row.findViewById(R.id.lRowLista);
 
         tProduto.setText(item.getNome().toString());
-        tPreco.setText(item.getValor().toString());
+        tPreco.setText(item.getValor().toString().replace(".", ",") + "0");
         tDescricao.setText(item.getDescricao().toString());
 //        iProduto.setImageResource(item.getId_foto());
 
@@ -95,6 +95,7 @@ public class AdapterAppedida extends BaseAdapter {
                     listProduto = AppedidaAplication.getInstance().getListProduto();
                     listProduto.add(item);
                     AppedidaAplication.getInstance().setListProduto(listProduto);
+
                 }
             }
         };

@@ -57,28 +57,27 @@ public class FazerPedidoActivity extends BaseActivity {
         View v = inflater.inflate(R.layout.view_confirmar, null);
         dialog.setView(v);
         lAppedidaSelecionados = (ListView) v.findViewById(R.id.lAppedidaSelecionados);
-        listaProdutoSelecionados = AppedidaAplication.getInstance().getListProduto();
-        if ( listaProdutoSelecionados != null && lAppedidaSelecionados != null) {
-            AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Produto>) listaProdutoSelecionados);
-            lAppedidaSelecionados.setAdapter(adapter);
-        }
 
-        // Por padrao vem o Cancelar antes, mas no PDF ta o OK antes...
+        listaProdutoSelecionados = AppedidaAplication.getInstance().getListProduto();
+
+        setaAdapterListaProdutosSelecionados();
+
         dialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(listaProdutoSelecionados != null) {
+                if(listaProdutoSelecionados != null && listaProdutoSelecionados.size() > 0) {
                     show(SelecionarUnidadesActivity.class);
                     finish();
                 }else {
                     toast(R.string.selecione_produtos);
+                    setaAdapterListaProdutos();
                 }
             }
         });
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                setaAdapterListaProdutos();
             }
         });
         dialog.show();
@@ -88,6 +87,8 @@ public class FazerPedidoActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
+        setaAdapterListaProdutos();
+        setaAdapterListaProdutosSelecionados();
     }
 
     private Task taskGetAllProdutos() {
@@ -104,12 +105,23 @@ public class FazerPedidoActivity extends BaseActivity {
             @Override
             public void updateView() {
 
-                if (listaProduto != null) {
-                    AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Produto>) listaProduto);
-                    lAppedida.setAdapter(adapter);
-                }
+                setaAdapterListaProdutos();
             }
         };
+    }
+
+    private void setaAdapterListaProdutos() {
+        if (listaProduto != null) {
+            AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Produto>) listaProduto);
+            lAppedida.setAdapter(adapter);
+        }
+    }
+
+    private void setaAdapterListaProdutosSelecionados() {
+        if ( listaProdutoSelecionados != null && lAppedidaSelecionados != null) {
+            AdapterAppedida adapter = new AdapterAppedida(getActivity(), (ArrayList<Produto>) listaProdutoSelecionados);
+            lAppedidaSelecionados.setAdapter(adapter);
+        }
     }
 
 }

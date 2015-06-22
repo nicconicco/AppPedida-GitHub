@@ -59,7 +59,7 @@ public class AdapterAppedidaSelecionados extends BaseAdapter {
         TextView tContador = (TextView) row.findViewById(R.id.tContador);
 
         tProduto.setText(item.getNome().toString());
-        tPreco.setText(item.getValor().toString());
+        tPreco.setText(item.getValor().toString().replace(".",",")+"0");
 
         tMais.setOnClickListener(aumentaValor(tContador, item));
         tMenos.setOnClickListener(diminuiValor(tContador, item));

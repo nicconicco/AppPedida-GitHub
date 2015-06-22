@@ -53,8 +53,9 @@ public class AdapterAppedidaPedidos extends BaseAdapter {
         TextView tPedidos = (TextView) row.findViewById(R.id.tPedidos);
         TextView tPreco = (TextView) row.findViewById(R.id.tPreco);
 
+
         tPedidos.setText(item.getIdsProdutos());
-        tPreco.setText(item.getValor_Pedido());
+        tPreco.setText(item.getValor_Pedido().replace(".",",")+"0");
 
 
         return row;

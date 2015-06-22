@@ -49,8 +49,10 @@ public class MeusPedidosActivity extends BaseActivity {
         super.onResume();
 
         List<Pedido> listPedido = AppedidaService.getPedidosJaRealizados(getContext());
-        AdapterAppedidaPedidos adapter = new AdapterAppedidaPedidos(getActivity(), (ArrayList<Pedido>) listPedido);
-        lAppedida.setAdapter(adapter);
+        if(listPedido != null) {
+            AdapterAppedidaPedidos adapter = new AdapterAppedidaPedidos(getActivity(), (ArrayList<Pedido>) listPedido);
+            lAppedida.setAdapter(adapter);
+        }
 
     }
 }

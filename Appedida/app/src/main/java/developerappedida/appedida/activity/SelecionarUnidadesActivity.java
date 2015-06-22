@@ -59,6 +59,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        
         AdapterAppedidaSelecionados adapter = new AdapterAppedidaSelecionados(getActivity(), (ArrayList<Produto>) AppedidaAplication.getInstance().getListProduto());
         lAppedida.setAdapter(adapter);
 
@@ -74,6 +75,9 @@ public class SelecionarUnidadesActivity extends BaseActivity {
         lAppedidaSelecionados = (ListView) v.findViewById(R.id.lAppedidaSelecionados);
 
         listaProdutoSelecionados = AppedidaAplication.getInstance().getListProduto();
+
+
+
         if (listaProdutoSelecionados != null && lAppedidaSelecionados != null) {
             AdapterAppedidaFinalizarPedido adapter = new AdapterAppedidaFinalizarPedido(getActivity(), (ArrayList<Produto>) listaProdutoSelecionados);
             lAppedidaSelecionados.setAdapter(adapter);
@@ -90,7 +94,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
             precoTotal = Float.toString(total);
             precoTotal = precoTotal.replace(".", ",");
             tPrecoTotal = (TextView) v.findViewById(R.id.tPrecoTotal);
-            tPrecoTotal.setText(precoTotal);
+            tPrecoTotal.setText(precoTotal+"0");
         }
 
         // Por padrao vem o Cancelar antes, mas no PDF ta o OK antes...
@@ -122,7 +126,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
                 if (realizouAutenticacao) {
                     toast("Usuario autenticado, seu pedido esta sendo realizado.");
                     startTaskParallel(taskCreatePedido(getContext(), precoTotal), R.id.progress);
-                    finish();
+
                 }
             }
         };
@@ -142,9 +146,12 @@ public class SelecionarUnidadesActivity extends BaseActivity {
             @Override
             public void updateView() {
 
-                if(realizouPedido){
+                if (realizouPedido) {
                     toast("Pedido realizado com sucesso!");
-                        show(MeusPedidosActivity.class);
+                    show(MeusPedidosActivity.class);
+                    List<Produto> listaProduto = new ArrayList<Produto>();
+                    AppedidaAplication.getInstance().setListProduto(listaProduto);
+                    finish();
                 }
             }
         };
