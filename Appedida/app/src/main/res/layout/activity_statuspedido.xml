@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_fundo"
+    android:orientation="vertical">
+
+    <include layout="@layout/logo" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/azul_fundo_oscuro"
+        android:orientation="vertical">
+
+
+        <ListView
+            android:id="@+id/lAppedida"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"></ListView>
+    </LinearLayout>
+
+</LinearLayout>

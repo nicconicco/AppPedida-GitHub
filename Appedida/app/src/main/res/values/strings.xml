@@ -16,7 +16,7 @@
     <string name="digite_seu_email">Digite seu email </string>
     <string name="digite_seu_cpf">Digite seu CPF</string>
     <string name="celular_para_contato">Celular para contato</string>
-    <string name="fazer_pedido">Fazer pedido</string>
+    <string name="fazer_pedido">Fazer Pedido</string>
     <string name="meus_pedidos">Meus pedidos já realizados</string>
     <string name="editar_meu_perfil">Editar meu perfil</string>
     <string name="usuario_cadastrado">Usuário cadastrado com sucesso!</string>
@@ -63,4 +63,5 @@
     <string name="voce_ja_realizou">Você já realizou os seguintes pedidos, fique tranquilo pois estes pedidos só serão armazenados se a operação do seu pedido foi realizada com sucesso.</string>
     <string name="voltar">Voltar</string>
     <string name="selecione_produtos">Selecione ao menos 1 produto para continuar realizando seu pedido.</string>
+    <string name="status_pedido">Status Pedido</string>
 </resources>

@@ -43,6 +43,9 @@
         <activity
             android:name=".activity.SelecionarUnidadesActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StatusPedidosActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

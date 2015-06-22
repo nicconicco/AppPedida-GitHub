@@ -15,6 +15,7 @@ public class MenuAppedida extends BaseActivity {
 
     private LinearLayout tFazerPedido;
     private LinearLayout tVisualizarPedidos;
+    private LinearLayout tStatus;
     private Usuario user;
     private TextView tUsuario;
 
@@ -35,6 +36,18 @@ public class MenuAppedida extends BaseActivity {
 
         tVisualizarPedidos = (LinearLayout) findViewById(R.id.tVisualizarPedidos);
         tVisualizarPedidos.setOnClickListener(visualizarPedidos());
+
+        tStatus = (LinearLayout) findViewById(R.id.tStatus);
+        tStatus.setOnClickListener(visualizarStatusUltimoPedido());
+    }
+
+    private View.OnClickListener visualizarStatusUltimoPedido() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                show(StatusPedidosActivity.class);
+            }
+        };
     }
 
     private View.OnClickListener visualizarPedidos() {
