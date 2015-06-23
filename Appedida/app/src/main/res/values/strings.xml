@@ -64,4 +64,8 @@
     <string name="voltar">Voltar</string>
     <string name="selecione_produtos">Selecione ao menos 1 produto para continuar realizando seu pedido.</string>
     <string name="status_pedido">Status Pedido</string>
+    <string name="status_pedidos_online">Status Pedidos cadastrados no sistema</string>
+    <string name="id_do_pedido">Id do Pedido</string>
+    <string name="valor_do_pedido">Valor do Pedido</string>
+    <string name="status_do_pedido">Status do Pedido</string>
 </resources>

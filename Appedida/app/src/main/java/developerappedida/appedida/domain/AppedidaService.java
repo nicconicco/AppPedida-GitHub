@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.livroandroid.db.Session;
+import br.livroandroid.utils.Pref;
 import developerappedida.appedida.AppedidaAplication;
 import developerappedida.appedida.R;
 import developerappedida.appedida.activity.BaseActivity;
@@ -25,6 +26,7 @@ public class AppedidaService extends BaseActivity {
 
     private static final String TAG = AppedidaService.class.getSimpleName();
     private static List<Produto> listaPedidos = new ArrayList<Produto>();
+    private static List<PedidoOnline> pedidosOnline = new ArrayList<PedidoOnline>();
 
     public static final String URL_SERVER = "http://appedida.com.br";
 
@@ -84,9 +86,9 @@ public class AppedidaService extends BaseActivity {
         Session session = AppedidaAplication.getInstance().getSession(context);
 
         try {
-                session.saveOrUpdate(pedido);
-                Log.i(TAG, context.getString(R.string.pedido_salvo));
-                return true;
+            session.saveOrUpdate(pedido);
+            Log.i(TAG, context.getString(R.string.pedido_salvo));
+            return true;
         } finally {
             if (session != null) {
                 session.close();
@@ -181,9 +183,9 @@ public class AppedidaService extends BaseActivity {
         Usuario usuario = AppedidaAplication.getInstance().getUser();
 
 
-        precoTotal = precoTotal.replace(",",".");
+        precoTotal = precoTotal.replace(",", ".");
 
-        if(usuario.getId_Usuario() != 0) {
+        if (usuario.getId_Usuario() != 0) {
 
             try {
                 params.put("idsProdutos", listaConcatenada);
@@ -196,7 +198,7 @@ public class AppedidaService extends BaseActivity {
 
                 if (json.contains("true")) {
 
-                    Pedido p = new Pedido(listaConcatenada , precoTotal);
+                    Pedido p = new Pedido(listaConcatenada, precoTotal);
                     salvarPedido(context, p);
                     return true;
                 } else {
@@ -215,7 +217,7 @@ public class AppedidaService extends BaseActivity {
 
         String concatenar = "";
 
-        for(Produto d: listaProdutoSelecionados){
+        for (Produto d : listaProdutoSelecionados) {
             concatenar += d.getId_Produto() + " |";
         }
 
@@ -246,6 +248,7 @@ public class AppedidaService extends BaseActivity {
                 u.setId_Usuario(Integer.valueOf(id_Usuario));
                 usuario.setId_Usuario(u.getId_Usuario());
                 AppedidaAplication.getInstance().setUser(usuario);
+                Pref.setString(context, "Usuario_appedida", String.valueOf(u.getId_Usuario()));
                 return true;
             } else {
                 return false;
@@ -256,5 +259,73 @@ public class AppedidaService extends BaseActivity {
         }
 
         return false;
+    }
+
+    public static List<PedidoOnline> GetAllPedidoPorStatus(Context context) {
+
+        pedidosOnline = new ArrayList<PedidoOnline>();
+
+        HttpHelper http = getHttpHelper();
+        Map<String, String> params = getHttpParams();
+
+
+        try {
+            String u = Pref.getString(context, "Usuario_appedida");
+
+            if (u != null) {
+
+                params.put("idUsuario", u);
+                params.put("status", "");
+
+                http.doPost(URL_SERVER + "/appedidaWS/WS/Appedida.asmx/GetAllPedidoPorStatus ", params);
+                String json = http.getString();
+                Log.i(TAG, "info: " + json);
+
+
+                if (json != null) {
+                    JSONArray jsonArray = new JSONArray(json);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject j = jsonArray.getJSONObject(i);
+
+                        String idPedido = j.getString("IdPedido");
+                        String valorPedido = j.getString("ValorPedido");
+                        String idStatusPedido = j.getString("IdStatusPedido");
+
+                        JSONArray produtosArray = j.getJSONArray("listProdutos");
+                        List<Produto> listaProdutos = new ArrayList<Produto>();
+
+                        for (int i2 = 0; i2 < produtosArray.length(); i2++) {
+                            JSONObject j2 = produtosArray.getJSONObject(i2);
+
+                            String idProduto = j2.getString("id_Produto");
+                            String descricao = j2.getString("descricao");
+                            String valor = j2.getString("valor");
+                            String data_Cadastro = j2.getString("data_Cadastro");
+                            String nome = j2.getString("nome");
+                            String id_foto = j2.getString("id_foto");
+
+                            Produto p = new Produto(idProduto, descricao, valor, data_Cadastro, nome, id_foto);
+                            listaProdutos.add(p);
+
+                        }
+
+                        PedidoOnline p = new PedidoOnline(idPedido, valorPedido, idStatusPedido, listaProdutos);
+
+                        pedidosOnline.add(p);
+
+                    }
+
+                    return pedidosOnline;
+                }
+            } else {
+
+                return null;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
