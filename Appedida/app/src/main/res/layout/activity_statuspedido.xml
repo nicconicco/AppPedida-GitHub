@@ -10,7 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -23,6 +24,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"></ListView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/btnVoltar">
+
+        <TextView
+            android:background="@drawable/selector_btn"
+            android:text="@string/voltar"
+            android:gravity="center_vertical|center"
+            android:layout_width="match_parent"
+            android:textColor="@color/azul_fundo_oscuro"
+            android:textSize="@dimen/font18"
+            android:layout_height="@dimen/dimen57" />
     </LinearLayout>
 
 </LinearLayout>

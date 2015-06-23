@@ -29,6 +29,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tIdDoPedido"
                     android:layout_marginLeft="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -44,6 +45,7 @@
                     android:layout_marginRight="3dp"/>
 
                 <TextView
+                    android:id="@+id/tValorDoPedido"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
@@ -60,8 +62,10 @@
                     android:layout_marginRight="3dp"/>
 
                 <TextView
+                    android:id="@+id/tStatusDoPedido"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_height="wrap_content"
                     android:text="@string/status_do_pedido"
