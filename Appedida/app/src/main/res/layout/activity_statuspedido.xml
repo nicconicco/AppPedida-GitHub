@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_fundo"
+    android:background="@color/fundo_roxo"
     android:orientation="vertical">
 
     <include layout="@layout/logo" />
@@ -18,6 +18,66 @@
         android:background="@color/azul_fundo_oscuro"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/branco"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tIdDoPedido"
+                android:layout_marginLeft="5dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/numero_do_pedido"
+                android:textColor="@color/branco" />
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/branco"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"/>
+
+            <TextView
+                android:id="@+id/tValorDoPedido"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:text="@string/valor_do_pedido"
+                android:textColor="@color/branco" />
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/branco"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"/>
+
+            <TextView
+                android:id="@+id/tStatusDoPedido"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:text="@string/status_do_pedido"
+                android:textColor="@color/branco" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/branco"/>
 
         <ListView
             android:id="@+id/lAppedida"
