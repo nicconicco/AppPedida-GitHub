@@ -5,16 +5,11 @@
     android:background="@color/fundo_roxo"
     android:orientation="vertical">
 
-    <include layout="@layout/logo" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="@color/azul_fundo_oscuro"
         android:orientation="vertical">
 
@@ -30,8 +25,8 @@
             android:orientation="horizontal">
 
             <TextView
+                android:padding="10dp"
                 android:id="@+id/tIdDoPedido"
-                android:layout_marginLeft="5dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -46,11 +41,25 @@
                 android:layout_marginRight="3dp"/>
 
             <TextView
+                android:padding="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/produtos"
+                android:textColor="@color/branco" />
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/branco"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"/>
+
+            <TextView
                 android:id="@+id/tValorDoPedido"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:text="@string/valor_do_pedido"
                 android:textColor="@color/branco" />
@@ -66,8 +75,7 @@
                 android:id="@+id/tStatusDoPedido"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:text="@string/status_do_pedido"
                 android:textColor="@color/branco" />

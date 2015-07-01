@@ -53,12 +53,11 @@ public class AdapterAppedida extends BaseAdapter {
         TextView tProduto = (TextView) row.findViewById(R.id.tProduto);
         TextView tPreco = (TextView) row.findViewById(R.id.tPreco);
         TextView tDescricao = (TextView) row.findViewById(R.id.tDescricao);
-        ImageView iProduto = (ImageView) row.findViewById(R.id.iProduto);
         LinearLayout lRowLista = (LinearLayout) row.findViewById(R.id.lRowLista);
 
         tProduto.setText(item.getNome().toString());
         tPreco.setText(item.getValor().toString().replace(".", ",") + "0");
-        tDescricao.setText(item.getDescricao().toString());
+        tDescricao.setText(item.getDescricao().toString().equals(item.getNome().toString()) ? "" : item.getDescricao().toString());
 //        iProduto.setImageResource(item.getId_foto());
 
         lRowLista.setOnClickListener(selecionaItem(item));

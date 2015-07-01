@@ -13,13 +13,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
-
             android:background="@color/azul_fundo_oscuro"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
+                android:layout_height="1dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/branco" />
 
@@ -38,7 +37,24 @@
                     android:textColor="@color/branco" />
 
                 <TextView
-                    android:layout_width="4dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/branco"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"/>
+
+
+                <TextView
+                    android:id="@+id/tProduto"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/produtos"
+                    android:textColor="@color/branco" />
+
+                <TextView
+                    android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/branco"
                     android:layout_marginLeft="3dp"
@@ -55,7 +71,7 @@
                     android:textColor="@color/branco" />
 
                 <TextView
-                    android:layout_width="4dp"
+                    android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/branco"
                     android:layout_marginLeft="3dp"

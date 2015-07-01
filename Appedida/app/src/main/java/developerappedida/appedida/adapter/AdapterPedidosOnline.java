@@ -53,9 +53,18 @@ public class AdapterPedidosOnline extends BaseAdapter {
         TextView tIdDoPedido = (TextView) row.findViewById(R.id.tIdDoPedido);
         TextView tValorDoPedido = (TextView) row.findViewById(R.id.tValorDoPedido);
         TextView tStatusDoPedido = (TextView) row.findViewById(R.id.tStatusDoPedido);
+        TextView tProduto = (TextView) row.findViewById(R.id.tProduto);
 
         tIdDoPedido.setText(item.getIdPedido());
         tValorDoPedido.setText(item.getValorPedido().replace(".",",")+"0");
+
+        String listaDeProdutos = "";
+
+        for(Produto p : item.getListProdutos()) {
+            listaDeProdutos = listaDeProdutos + "\n"+ p.getDescricao();
+        }
+
+        tProduto.setText(listaDeProdutos);
 
         if(item.getIdStatusPedido().toString().equals("1")) {
             tStatusDoPedido.setText("Aprovado");

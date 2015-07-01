@@ -69,4 +69,6 @@
     <string name="valor_do_pedido">Valor do Pedido</string>
     <string name="status_do_pedido">Status do Pedido</string>
     <string name="numero_do_pedido">Número do pedido</string>
+    <string name="produtos">Produtos</string>
+    <string name="id_do_produto">Ids dos produtos</string>
 </resources>
