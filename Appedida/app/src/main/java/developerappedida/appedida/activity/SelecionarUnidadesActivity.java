@@ -148,7 +148,7 @@ public class SelecionarUnidadesActivity extends BaseActivity {
 
                 if (realizouPedido) {
                     toast("Pedido realizado com sucesso!");
-                    show(MeusPedidosActivity.class);
+                    show(StatusPedidosActivity.class);
                     List<Produto> listaProduto = new ArrayList<Produto>();
                     AppedidaAplication.getInstance().setListProduto(listaProduto);
                     finish();
